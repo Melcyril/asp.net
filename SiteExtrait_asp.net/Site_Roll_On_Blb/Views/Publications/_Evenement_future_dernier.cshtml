@@ -1,0 +1,120 @@
+﻿@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Publication
+
+@{
+    IEnumerable<Publication> Liste_Event_future = TempData["EvtFuturDernier"] as IEnumerable<Publication>;//ViewBag.evenement_future_dernier;
+    int i = 0;
+    string stock = "";
+    string[] tabextension;
+    int dernierpoint = 0;
+    int indice;
+    string extension = "";
+    string url = "";
+    string url1 = "";
+
+}
+    <br />
+<h1>Événements futures</h1>
+
+<div class="divEventFuture">
+
+    @foreach (var item in Liste_Event_future)
+    {
+
+        try
+        {
+            //if (item.datePrevisionPublication > DateTime.Now)
+            //{
+            if (item.urlPublication == null||item.urlPublication.Equals(""))
+            {
+                <div class="div_artnomediaFuturedernier">
+
+                    @{
+                        stock = "normal_article" + i.ToString();
+                    }
+
+                    <h1> @Html.Label("textePublication", item.titrePublication)</h1>
+
+                    <p class="p_pub_artnomediaFuturedernier" id="@stock">
+                        <a class="a_pub_artnomediaFuturedernier">
+                            @Html.Label("textePublication", item.contenuPublication)
+                        </a>
+                    </p>
+                </div>
+            }
+            else
+            {
+                //jj
+                <div class="articleFuturedernier">
+                    <h3>@item.titrePublication</h3>
+
+                    @{
+                        tabextension = item.urlPublication.Split('.');
+                        dernierpoint = tabextension.Count();
+                        indice = dernierpoint - 1;
+                        extension = tabextension[indice].ToLower();
+                        url1 = item.urlPublication;
+                        string[] urlsplit;
+                        urlsplit = url1.Split('/');
+                        url = urlsplit[0] + "/" + urlsplit[1] + "/Mini/" + urlsplit[2];
+
+                    }
+                    @if (extension.Equals("jpg") || extension.Equals("jpeg") || extension.Equals("gif") || extension.Equals("png"))
+                    {
+
+                        <img class="img_article" src="@url" width="70%">
+                    }
+                    else if (extension.Equals("3gp") || extension.Equals("avi") || extension.Equals("mov") || extension.Equals("mp4"))
+                    {
+                        <video controls width="70%">
+                            <source src="@url1" type="video/mp4" class="embed-responsive-item vid_article" />
+                        </video>
+                    }
+                    <p class="soustitredernier">@item.sousTitrePublication</p>
+                    <hr class="barrerouge">
+                    @{
+                        stock = "miniarticleFuturedernier" + i.ToString();
+                    }
+                    <p class="miniArticledernier" id="@stock">
+                        @item.souscontenuPublication
+                    </p>
+                    @{
+                        stock = "normalarticleFuturedernier" + i.ToString();
+                    }
+                    <p class="normalArticledernier" id="@stock">
+                        @item.contenuPublication
+                    </p>
+                    <div class="lien_articleFuturedernier">
+                        @{
+                            stock = "agrandirFuturedernier" + i.ToString();
+                        }
+                        @if (item.souscontenuPublication != item.contenuPublication)
+                        {
+                            <a class="agrandirFuturedernier" id="@stock"><i class="fa fa-chevron-down"></i></a>
+                        }
+
+                        @{
+                            stock = "reduireFuturedernier" + i.ToString();
+                        }
+                        <a class="reduireFuturedernier" id="@stock"><i class="fa fa-chevron-up"></i></a>
+                    </div>
+
+                </div>
+                //kk
+
+            }
+
+
+            <hr class="barrerougeheader">
+            i++;
+            //}
+        }
+        catch (Exception) { }
+    }
+</div>
+
+<p>
+    @Html.ActionLink("Voir tous les événements futures", "_Evenement_future", "Publications", null, new { @id = "eventfutur", @class = "lienEvent" })
+</p>
+<br /><br />
+

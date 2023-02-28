@@ -1,0 +1,101 @@
+﻿@model Site_Roll_On_Blb.Models.Galerie
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Galerie</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.datePostGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.datePostGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.urlGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.urlGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.AltGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.AltGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nomGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nomGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ordreGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ordreGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.idTypeGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.idTypeGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.visibleGalerie)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.visibleGalerie)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sport.nomSport)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sport.nomSport)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

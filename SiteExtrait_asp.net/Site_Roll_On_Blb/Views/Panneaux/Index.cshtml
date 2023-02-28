@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Panneau>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            font-size: small;
+        }
+
+
+
+        a {
+            color: whitesmoke;
+        }
+
+            a:hover {
+                color: whitesmoke;
+                background-color: rgba(182, 63, 57, 0.582);
+            }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.textePanneau)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.OrdrePanneau)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.visiblePanneau)
+                </th>
+                <th class="create">
+                    <p>
+                        @Html.ActionLink("Créer un texte pour le panneau", "Create")
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.textePanneau)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.OrdrePanneau)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.visiblePanneau)
+                    </td>
+                    <td class="edd">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.idPanneau,title="Modifier le panneau" }) <br /><br />
+                        @Html.ActionLink("Details", "Details", new { id = item.idPanneau ,title="Voir le panneau" }) <br /><br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.idPanneau,title="Supprimer le panneau"  })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

@@ -1,0 +1,92 @@
+﻿<!--FOOTER-->
+<hr class="barrerougefooter">
+
+<footer>
+
+    <div class="container-fluid">
+        <!--footer RESEAUX SOCIAUX-->
+        <div class="row monfooter">
+            <div class="col-md-3 reseau">
+                <p class="titreFooter">RESEAUX SOCIAUX</p>
+                <p>
+                    <a href="https://www.youtube.com/results?search_query=skatepark+bruay+la+buissiere" target="_blank">
+                        <i class="fa fa-youtube-play" aria-hidden="true"></i>
+                    </a>
+                </p>
+                <p>
+                    <a href="https://fr-fr.facebook.com/Skateparkdebruay/" target="_blank">
+                        <i class="fa fa-facebook-f" aria-hidden="true" alt="Facebook"></i>
+                    </a>
+                </p>
+                <p>
+                    <a href="https://instagram.com/Skateparkdebruay/" target="_blank">
+                        <i class="fa fa-instagram" aria-hidden="true" alt="insta"></i>
+                    </a>
+                </p>
+                <p>
+                    <a href="https://twitter.com/skateparkbruay" target="_blank">
+                        <i class="fa fa-twitter" aria-hidden="true"></i>
+                    </a>
+                </p>
+
+            </div>
+
+            <!--footer CONTACTS-->
+            <div class="col-md-3 divContact">
+                <p class="titreFooter">CONTACTS</p>
+
+                <div class="container-fluid divInfoContact">
+                    <div class="row mailContacts">
+                        <div class="col-md-4 titreContact">
+                            E-Mail :
+                        </div>
+                        <div class="col-md-8 infoContact">
+                            <a class="mailAdmin" href="mailto:_______@___.com">  _______@___.com</a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row mailContacts">
+                        <div class="col-md-4 titreContact">
+                            Téléphone :
+                        </div>
+                        <div class="col-md-8 infoContact">
+                            __ __ __ __ __
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row adresseContacts">
+                        <div class="col-md-4 titreContact">
+                            Adresse :
+                        </div>
+                        <div class="col-md-8 infoContact">
+                            <p>Quartier Moulins, Rue de la Cité Pasteur,</p> 62700 Bruay-la-Buissière
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--footer MAP-->
+            <div class="col-md-3 map">
+                <p class="titreFooter">MAP DU SKATEPARK</p>
+                <div id="map">
+                    <!-- Ici s'affichera la carte -->
+                </div>
+            </div>
+            <!--footer PARTENAIRE-->
+            <div class="col-md-3 divpartenaires">
+                <p class="titreFooter">NOS PARTENAIRES</p>
+
+                @Html.Partial("~/Views/Partenaires/_Partenaire.cshtml", new ViewDataDictionary { { "_Partenaire", "Partenaires" } })
+
+            </div>
+        </div>
+    </div>
+    <!--footer Copyright-->
+    <div class="copyright">
+        <i class="fa fa-copyright" aria-hidden="true" alt="Facebook"></i>
+        Copyright AUteur
+
+    </div>
+</footer>
+
+

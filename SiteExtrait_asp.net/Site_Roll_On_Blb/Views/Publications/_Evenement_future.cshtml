@@ -1,0 +1,173 @@
+﻿@using Site_Roll_On_Blb.Models;
+@*@model Site_Roll_On_Blb.Models.Publication*@
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    //IEnumerable<Publication> Liste_Event_future = ViewBag.evenement_future;
+    List<PublicationImage> images = ViewBag.ListeImages;
+    int i = 0;
+    string stock = "";
+    string[] tabextension;
+
+    int dernierpoint = 0;
+    int indice;
+    string extension = "";
+    string url = "";
+
+}
+
+
+
+    <div class="container corp1">
+
+        @foreach (var item in Model.ItemsEventFuture)
+        {
+
+            try
+            {
+                if (item.datePrevisionPublication > DateTime.Now)
+                {
+                    bool found = false;
+                    foreach (var image in images)
+                    {
+                        if (image.idPublication == item.idPublication)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found==false)
+                    {
+                        <div class="div_artnomedia">
+
+                            @{
+                                stock = "normal_article" + i.ToString();
+                            }
+
+                            @*<h5> @Html.Label("textePublication", item.titrePublication)</h5>*@
+                            <h5> <label>@item.titrePublication</label></h5>
+
+                            <p class="p_pub_artnomedia" id="@stock">
+                                <a class="a_pub_artnomedia">
+                                    @*@Html.Label("textePublication", item.contenuPublication)*@
+                                    <label>@item.contenuPublication</label>
+                                </a>
+                            </p>
+                        </div>
+                    }
+                    else
+                    {
+                        //tableau d'url
+
+                        List<string> taburl = new List<string>();
+
+                        foreach (var image in images)
+                        {
+                            if (image.idPublication == item.idPublication)
+                            {
+                                taburl.Add(image.urlPublicationImage);
+                            }
+                        }
+                        <div class="art">
+                            @*<h3>@Html.Label("textePublication", item.titrePublication)</h3>*@
+                            <h3><label>@item.titrePublication</label></h3>
+                            <hr class="barrebleu">
+                            @for (int cpt = 0; cpt < taburl.Count; cpt++)
+                            {
+                                if (taburl[cpt] != null)
+                                {
+                                    //recherche de l'extension
+                                    tabextension = taburl[cpt].Split('.');
+                                    dernierpoint = tabextension.Count();
+                                    indice = dernierpoint - 1;
+                                    extension = tabextension[indice].ToLower();
+                                    url = "../" + taburl[cpt];
+                                    //comparaison de l'extension du fichier pour reconaitre si c'est une photo ou une video
+                                    if (extension.Equals("jpg") || extension.Equals("jpeg") || extension.Equals("gif") || extension.Equals("png"))
+                                    {
+
+                                        <img class="img_article" src="@url">
+                                    }
+                                    else if (extension.Equals("3gp") || extension.Equals("avi") || extension.Equals("mov") || extension.Equals("mp4"))
+                                    {
+                                        <video controls width="70%">
+                                            <source src="@url" type="video/mp4" class="embed-responsive-item vid_article" />
+                                        </video>
+                                    }
+                                }
+                            }
+                            @*<h3> @Html.Label("textePublication", item.sousTitrePublication)</h3>*@
+                            <h3><label>@item.sousTitrePublication</label></h3>
+                            <hr class="barrebleu">
+                            @{
+                                stock = "mini_article" + i.ToString();
+                            }
+                            <p class="p_artmini" id="@stock">
+                                @*@Html.Label("textePublication", item.souscontenuPublication)*@
+                                <label>@item.souscontenuPublication</label>
+                            </p>
+                            @{
+                                stock = "normal_article" + i.ToString();
+                            }
+                            <p class="p_art" id="@stock">
+                                @*@Html.Label("textePublication", item.contenuPublication)*@
+                                <label>@item.contenuPublication</label>
+                            </p>
+                            <div class="lien_article">
+                                @{
+                                    stock = "agrandir" + i.ToString();
+                                }
+                                <a class="agrandir" id="@stock" onclick="myfunction()"><i class="fa fa-chevron-down"></i></a>
+                                @{
+                                    stock = "reduire" + i.ToString();
+                                }
+                                <a class="reduire" id="@stock"><i class="fa fa-chevron-up"></i></a>
+                            </div>
+
+                        </div>
+
+                    }
+
+                    i++;
+                }
+            }
+            catch (Exception) { }
+        }
+    <div class="divpagination">
+        @if (Model.Pager.PageFin > 1)
+        {
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (Model.Pager.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="~/Publications/_Evenement_future">Premier page</a>
+                        </li>
+                    }
+                    @for (var page = Model.Pager.PageDebut; page <= Model.Pager.PageFin; page++)
+                    {
+                        <li class="@(page == Model.Pager.CurrentPage ?"active" : "")">
+                            <a class="page-link" href="~/Publications/_Evenement_future?page=@page">@page</a>
+                        </li>
+                    }
+                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="~/Publications/_Evenement_future?page=@(Model.Pager.TotalPages)">Derniere page</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        }
+    </div>
+         <div class="divretourHP">
+            <a class="retourHP"  title="Retour haut de page"><i class="fa fa-arrow-up"></i></a>
+        </div>
+     </div>
+
+
+
+

@@ -1,0 +1,533 @@
+/*-----------------------------------------------Corp de la page*/
+
+.corp1 {
+    width: 100%;
+    word-break: break-word;
+
+}
+/*-------------------------------------------------Publication Article avec media*/
+
+
+.p_art{
+    display:none;
+}
+
+.p_artmini, .p_art {
+    border: 7px solid rgba(251, 234,253, 0.3);
+    margin-top: 2%;
+    width: 70%;
+    margin-left: 15%;
+    text-align: justify;
+    background-color: rgba(10, 67, 82,0.5);
+    color: whitesmoke;
+    font-family: Courier New, Courier, monospace;
+    font-size: 18px;
+    border-radius: 15px;
+    padding: 25px 30px 25px 30px;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    box-shadow: 4px 4px 8px 2px rgba(10, 67, 82,0.7);
+}
+
+/*hr rouge */
+.barrerouge{
+    border-top: 13px solid rgb(212, 22, 22);
+    border-radius: 5px;
+    margin-top:0;
+    
+}
+.barrebleu {
+    border-top: 5px solid rgba(10, 67, 82,0.5);
+    margin-top: 0;
+    width: 70%;
+}
+.barrerouge{
+    border-top: 5px solid rgb(212, 22, 22);
+    margin-top:0;
+    width:70%;
+    
+}
+.divtitrenews{
+    margin-top: 8px;
+    text-align: center;
+    padding:0;
+}
+.titrenews {
+    background-color: rgba(10, 67, 82,0.5);
+    color: whitesmoke;
+}
+h1{
+    color:whitesmoke;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    background-color: rgba(10, 67, 82,0.1);
+}
+h3{
+    padding-top:5%;
+    padding-left:5px;
+    padding-right:  5px;
+    color:whitesmoke;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    font-weight: bold;
+    text-transform:uppercase;
+}
+h5 {
+    color: rgb(0, 121, 139);
+    font-style: italic;
+    text-decoration: underline;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+h4{
+    color:whitesmoke;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    background-color: rgba(10, 67, 82,0.1);
+}
+.img_article {
+    margin-top: 2%;
+    box-shadow: 8px 8px 12px 2px rgba(10, 67, 82,0.7);
+    width: 80%;
+}
+.vid_article {
+    margin-top: 2%;
+    box-shadow: 8px 8px 12px 2px rgba(10, 67, 82,0.7);
+}
+.lien_article {
+    margin-top: 2%;
+    padding-bottom: 2%;
+    color: rgb(0, 121, 139);
+    cursor: pointer;
+    text-decoration: underline;
+}
+.reduire{
+    display:none;
+}
+.div_LienHP {
+    text-align:center;
+}
+/*-------------------------------------------------Publication Article sans media*/
+.div_artnomedia {
+    border: 5px solid rgba(10, 67, 82,0.322);
+    border-radius: 25px 10px 10px 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    margin-left:2%;
+    background-color: rgba(10, 67, 82,0.1);
+    text-align: left;
+    
+}
+
+.div_artnomediaFuturedernier{
+    background-color:rgba(245, 230, 250,0.1);
+    margin-top: 25px;
+    margin-bottom: 25px;
+   
+}
+
+
+.p_pub_artnomedia {
+    color: whitesmoke;
+    font-family: Courier New, Courier, monospace;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    background-color: rgba(10, 67, 82,0.7);
+    margin-left: 5%;
+    border-radius: 6px 0px 0px 6px;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 32px;
+}
+
+.a_pub_artnomedia {
+  
+    width:50%;
+    
+}
+.titrenomedia{
+    margin-left:5%;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+
+}
+.contenupartiedroite {
+    background-color: rgba(10, 67, 82,0.5);
+    text-align: center;
+    margin-top: 8px;
+    padding-right: 30px;
+    margin-bottom: 16px;
+    
+}
+
+.articleFuturedernier,.articleRealisedernier {
+    margin-top: 15px;
+    margin-bottom:15px;
+    background-color:rgba(245, 230, 250,0.1);
+ 
+}
+.datepost{
+    font-size:x-small;
+    font-weight:bolder;
+    font-style: italic;
+    color:rgba(10, 67, 82,0.5);
+    background-color:rgba(245, 245, 245, 0.3);
+  margin-left:35%;
+  margin-right:35%;
+}
+.soustitredernier{
+    font-weight: bold;
+    font-style:italic;
+    padding-top:7px;
+    padding-bottom: 7px;
+    margin-left: 17%;
+    margin-right: 17%;
+    font-size: small;
+}
+.colorsize{
+    font-size:20px; 
+    color:whitesmoke;
+}
+.normalArticledernier {
+    display:none;
+}
+.miniArticledernier, .normalArticledernier {
+    text-overflow: ellipsis;
+    color: whitesmoke;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: justify;
+    font-family: Courier New, Courier, monospace;
+    padding-bottom: 7px;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    color: whitesmoke;
+}
+.p_pub_artnomediaFuturedernier{
+    font-family: Courier New, Courier, monospace;
+    margin-left: 10%;
+    margin-right: 10%;
+    color:whitesmoke;
+}
+.reduireRealisedernier {
+    display: none;
+
+}
+
+.reduireFuturedernier {
+    display: none;
+}
+.lienEvent,.lienEvent:visited {
+    color:whitesmoke;
+    font-style:italic;
+}
+.lienEvent:hover {
+    color:rgb(1, 26, 32);
+    text-decoration: none;
+    cursor: pointer;
+    font-style:italic;
+}
+.pubnews{
+    text-align:center;
+}
+.fa-arrow-up {
+    color: rgb(0, 121, 139);
+    border: solid 3px rgb(0, 121, 139);
+    border-radius:100%;
+    margin-bottom:25px;
+    font-size:20px;
+}
+.divretourHP,.divpagination{
+text-align: center;
+}
+.pagination{
+    margin-left: 40%;
+}
+/*---------------------------galerie---------------------*/
+.imgmini{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.divmodal{
+
+  text-align:center;
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  
+}
+.imgmodal{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    width: 70%;
+}
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 1px 0 #fff;
+    opacity: .7;
+  }
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+ 
+}
+
+
+/*Admin*/
+table {
+    font-size: small;
+    text-align: center;
+}
+
+thead {
+    background-color: azure;
+}
+
+tbody {
+    background-color: rgba(182, 63, 57, 0.582);
+    color: whitesmoke;
+   
+}
+
+
+.masquer {
+    display: none;
+}
+
+.edd {
+    background-color: rgba(0, 0, 0, 0.582);
+}
+
+.create {
+    background-color: rgba(0, 157, 196, 0.582);
+}
+.coltable {
+    background-color: rgba(128, 128, 128, 0.582);
+}
+
+/*Présentation*/
+.centrerimage,.center{
+    text-align:center;
+}
+
+.imgpresentation{
+    margin-top: 25px;
+    padding-right: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    background-color: rgba(102, 122, 150, 0.5);
+    opacity: 0.6;
+}
+.montexte{
+    color:rgba(245, 245, 245, 0.901);
+    font-family:Courier New, Courier, monospace;
+    font-weight: bolder;
+    font-size: 20px;
+}
+/*skatepark interieur*/
+.imgskate{
+    margin-top:20px;
+    margin-bottom:  20px;
+}
+/*page mot de passe oublié*/
+.centrer{
+    text-align:center;
+}
+.pageoubliemdp {
+    height: 400px;
+    background-color: rgba(0, 121, 139,0.3);
+}
+.btnvalidmdp {
+    width: 33%;
+  
+}
+.newmdp{
+    margin-top: 24px;
+}
+.newmdp, .newmdpconfirm {
+    margin-left: auto;
+    margin-right: auto;
+}
+/*valide compte*/
+.textvalidcompte {
+    height: 400px;
+    text-align: center;
+    font-weight: 600;
+    font-family: Courier New, Courier, monospace;
+    font-size: 35px;
+  
+    color: whitesmoke;
+}
+.newmdpvalid{
+    background-color: rgba(0, 121, 139,0.5);
+}
+/*mdp oublie*/
+.retourmdp a {
+    color: whitesmoke;
+}
+.page {
+    background-color: rgba(0, 121, 139,0.5);
+}
+
+.page-link {
+    border-radius: 5px;
+    background-color: rgba(0, 121, 139,0.5);
+    color:whitesmoke;
+}
+    .page-link:hover {
+        border-radius: 5px;
+        background-color: rgba(236, 29, 23,0.2);
+        color: rgba(236, 29, 23,1);
+    }
+    .placertxt{
+        margin-left:auto;
+        margin-right: auto;
+        margin-top:24px;
+    }
+    .adherant{
+        font-family: Courier New, Courier, monospace;
+        background-color: rgba(102, 122, 150, 0.5);
+        color: whitesmoke;
+    }
+/*-----------------------page sport*/
+.pagesport,.pagesinitcour,.pagecour,.page{
+    width: 100%;
+  
+    text-align: center;
+    font-family: Courier New, Courier, monospace;
+    background-color: rgba(102, 122, 150, 0.8);
+    color: whitesmoke;
+}
+.roller1,.skate1,.bmx1,.trot1{
+    margin:0;
+   margin-left: 10%;
+   
+}
+.skatepark{
+    background-color: rgba(102, 122, 150, 0.6);
+}
+/*.masquerPort, .masquerPort1 {
+    display: none;
+}*/
+.editpublication{
+    background-color: rgba(102, 122, 150, 0.6);
+}
+@media only screen and (max-width:469px) {
+    .masquerPort, .masquerPort1 {
+        display: none;
+    }
+    .presentation {
+        height: 400px;
+        text-align: center;
+        font-weight: 600;
+        font-family: Courier New, Courier, monospace;
+        background-color: rgba(102, 122, 150, 0.5);
+        color: whitesmoke;
+        width: 80%;
+        margin-left: 10%;
+    }
+    .vid_article{
+        width:100%;
+        margin-top: 35px;
+    }
+    h1,h3 {
+        font-size: 16px;
+    }
+    embed{
+        width:100%;
+        height: 100%;
+    }
+    .pubnews{
+        padding: 0;
+    }
+    .imgpresentation{
+        width:100%;
+    }
+}
+
+@media only screen and (max-width:768px) {
+    .body-content{
+        padding:0;
+        margin:0;
+    }
+
+    .contenupartiedroite {
+        padding: 0;
+    }
+
+
+
+    .presentation {
+        height: 400px;
+        text-align: center;
+        font-weight: 600;
+        font-family: Courier New, Courier, monospace;
+        background-color: rgba(0, 121, 139,0.5);
+        color: whitesmoke;
+        width: 80%;
+        margin-left: 10%;
+    }
+    embed{
+        width:100%;
+        height: 100%;
+    }
+    .vid_article {
+        width: 90%;
+    margin-top: 35px;
+    }
+    .pubnews{
+        padding: 0;
+    }
+    .imgpresentation{
+        width:100%;
+    }
+}
+
+@media only screen and (min-width:1024px) {
+
+    .placerbtn {
+        margin-left: 89%;
+    }
+    .presentation {
+        height: 400px;
+        text-align: center;
+        font-weight: 600;
+        font-family: Courier New, Courier, monospace;
+        background-color: rgba(0, 121, 139,0.5);
+        color: whitesmoke;
+        width: 50%;
+        margin-left: 25%;
+    }
+    .vid_article {
+        width: 80%;
+    }
+    embed{
+        width:800px;
+        height: 500px;
+        margin: 20px,0,20px,0;
+    }
+    .art {
+        text-align: center;
+        border: 4px solid rgba(251, 234,253, 0.2);
+        border-radius: 25px;
+        margin-top: 25px;
+        margin-bottom: 25px;
+        margin-left:2%;
+        background-color: rgba(102, 122, 150, 0.5);
+        box-shadow: 4px 4px 8px 2px rgba(10, 67, 82,0.7);
+        
+    }
+    .imgpresentation{
+        width:70%;
+    }
+    .createpublication{
+        margin-left:10%;
+    }
+}

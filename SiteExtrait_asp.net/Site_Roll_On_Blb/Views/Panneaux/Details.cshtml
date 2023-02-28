@@ -1,0 +1,55 @@
+﻿@model Site_Roll_On_Blb.Models.Panneau
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>Panneau</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.textePanneau)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.textePanneau)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OrdrePanneau)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OrdrePanneau)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.visiblePanneau)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.visiblePanneau)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idPanneau }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

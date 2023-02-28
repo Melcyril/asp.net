@@ -1,0 +1,54 @@
+﻿@using Site_Roll_On_Blb.Models
+@model Site_Roll_On_Blb.Models.Utilisateur
+<!--Formulaire de connexion-->
+
+
+
+    <div class="seConnecter">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+            <div class="center">
+                <h1 class="col-md-12 titrelogin">Connexion </h1>
+            </div>
+            <p id="Messagelogin" class="Messagelogin"></p>
+            <p class="validmess">Cliquez <a id="btnvalidmess" onclick="ActiverCompte()" href="#">ici</a> pour recevoir le mail de validation de compte sur votre messagerie</p>
+            <div>
+
+                @Html.EditorFor(model => model.mailUtilisateur, new { htmlAttributes = new { @class = "login form-control", @placeholder = "Saisir votre mail" } })
+
+                @Html.EditorFor(model => model.mdpUtilisateur, new { htmlAttributes = new { @class = "pass form-control", @placeholder = "Saisir votre mot de passe", @type = "password" } })
+            </div>
+            <div class="center">
+                <input type="checkbox" name="rememberMe" id="rememberMe" /><span class="seSouvenir"> &nbsp; Se souvenir de moi </span> <br />
+                <input type="button" id="validconnexion" onclick="Connexion()" value="Connexion" class="btn btn-primary btnConnexion" />
+
+            </div>
+
+
+
+
+
+            @*@Html.ActionLink("Se connecter", "Home", "Homee", new { @class = "btnConnexion btn btn-primary" })*@
+
+            @Html.ValidationMessageFor(model => model.mailUtilisateur, "", new { @class = "text-danger" })
+        }
+
+
+        <div class="Souvenir">
+            @*<p class="validmess">Cliquez recevoir le message de validation de compte <input type="submit" id="btnvalidmess" onclick="ActiverCompte()" class="btn btn-primary" value="Recevoir" /></p>*@
+            <span class="mdpoubliespan"><a href="~/Utilisateurs/DemandeMotdepasse">Mot de passe oublié ?</a></span>
+            <div>
+                <p class="pasinscri">Si vous n'êtes pas inscrit, inscrivez-vous <a href="#" class="lieninscription">ici</a></p>
+            </div>
+            <br />
+            <a class="retour" href="">Retour</a>
+
+
+
+        </div>
+
+    </div>
+

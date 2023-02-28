@@ -1,0 +1,168 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Publication>
+@using Site_Roll_On_Blb.Models;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Publication publication = new Publication();
+    string url = "";
+
+}
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <style>
+            table {
+                font-size: small;
+            }
+
+            html {
+                overflow-x: visible;
+            }
+            
+        a{
+            color:whitesmoke;
+        }
+        a:hover{
+            color:whitesmoke;
+            background-color: rgba(182, 63, 57, 0.582);
+        }
+        </style>
+    </head>
+    <body>
+
+        <table class="table">
+            <thead>
+                <tr>
+                   
+                    <th class="masquerPort">
+                        @Html.DisplayNameFor(model => model.datePostPublication)
+                    </th>
+                    <th>
+                        Type publication
+                    </th>
+                    <th class="masquerPort">
+                        Prevision événement
+                    </th>
+                    <th>
+                        titre
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.sousTitrePublication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.souscontenuPublication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.contenuPublication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.urlPublication)
+
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.url1Publication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.url2Publication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.url3Publication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.url4Publication)
+                    </th>
+                    <th class="masquer">
+                        @Html.DisplayNameFor(model => model.url5Publication)
+                    </th>
+                    <th class="masquerPort">
+                        Statut
+                    </th>
+                    <th>
+                        Visible
+                    </th>
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Participation.nomParticipation)
+                        </th>*@
+
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.Utilisateur.mailUtilisateur)
+                        </th>*@
+                <th class="create">
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                <tr>
+
+                    <td class="masquerPort">
+                        @Html.DisplayFor(modelItem => item.datePostPublication)
+                    </td>
+                    <td class="coltable">
+                        @Html.DisplayFor(modelItem => item.TypePublication.nomTypePublication)
+                    </td>
+                    <td class="masquerPort">
+                        @Html.DisplayFor(modelItem => item.datePrevisionPublication)
+                    </td>
+                    <td class="coltable">
+                        @Html.DisplayFor(modelItem => item.titrePublication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.sousTitrePublication)
+                    </td>
+                    <td class="coltable masquer">
+                        @Html.DisplayFor(modelItem => item.souscontenuPublication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.contenuPublication)
+                    </td>
+                    <td class="coltable masquer">
+
+                        <img src="@url" />
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.url1Publication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.url2Publication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.url3Publication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.url4Publication)
+                    </td>
+                    <td class="masquer">
+                        @Html.DisplayFor(modelItem => item.url5Publication)
+                    </td>
+                    <td class="masquerPort">
+                        @Html.DisplayFor(modelItem => item.idStatut)
+                    </td>
+                    <td class="coltable">
+                        @Html.DisplayFor(modelItem => item.visiblePublication)
+                    </td>
+                    <td class="edd">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.idPublication, title = "Modifier publication" }) <br /><br />
+                        @Html.ActionLink("Details", "Details", new { id = item.idPublication, title = "Détail publication" }) <br /><br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.idPublication, title = "Supprimer publication" })
+                    </td>
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.Participation.nomParticipation)
+        </td>*@
+
+                    @*<td>
+            @Html.DisplayFor(modelItem => item.Utilisateur.mailUtilisateur)
+        </td>*@
+
+                </tr>
+                }
+            </tbody>
+        </table>
+    </body>
+</html>

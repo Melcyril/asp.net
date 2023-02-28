@@ -1,0 +1,29 @@
+﻿
+@using Site_Roll_On_Blb.Models;
+
+@model Site_Roll_On_Blb.Models.Partenaire
+
+@{
+    //Scripts.Render("~/bundles/jquery");
+    //Scripts.Render("~/bundles/bootstrap");
+    RollOnBlbEntities db = new RollOnBlbEntities();
+    ViewBag.Partenaire = (from p in db.Partenaire where p.visiblePartenaire == 1 orderby p.OrdrePartenaire ascending select p).ToList().AsEnumerable();
+    IEnumerable<Partenaire> ListeImagePartenaire = ViewBag.Partenaire;
+    //IEnumerable<Caroussel> ListeSlideImage = ViewBag.Caroussel;
+
+}
+
+@foreach (var item in ListeImagePartenaire)
+{
+    try
+    {
+        var url = "../" + @item.urlPartenaire;
+        <p class="partenaires">
+            <a href="@item.lienPartenaire" target="_blank"><img class="partenaireIMG" src="@url" alt="@item.nomPartenaire"></a>
+        </p>
+    }
+    catch (Exception)
+    {
+
+    }
+}

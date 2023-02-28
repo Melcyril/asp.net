@@ -1,0 +1,79 @@
+﻿@model Site_Roll_On_Blb.Models.Partenaire
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>Partenaire</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nomPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nomPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.urlPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.urlPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.lienPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.lienPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.altPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.altPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OrdrePartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OrdrePartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.visiblePartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.visiblePartenaire)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idPartenaire }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

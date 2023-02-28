@@ -1,0 +1,581 @@
+﻿html {
+    overflow-x: hidden;
+}
+/*------------------------------------------------body*/
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    width: 100%;
+    background-color: rgb(231, 234, 253);
+    /*background-image: linear-gradient(rgb(231, 234, 253,0.5), rgba(231, 234, 253, 0.5)),url("images/sk8a.png");
+    background-repeat: no-repeat;
+    background-size:cover;*/
+    /* Filtre en pixels */
+    /* Filtre avec un fichier */
+}
+/*------------------------------------------------ header */
+.header {
+    margin: 0;
+    width: 100%;
+}
+/*---logo + menu*/
+.headLogoMenu {
+    width: 100%;
+}
+/*container fluid */
+.container-fluid {
+    padding: 0;
+ 
+}
+/* Logo+titre */
+.div_headerLogo_1 {
+    background-color: rgb(0, 157, 196);
+    color: whitesmoke;
+    font-size: 50px;
+    font-family: "Stencil Std, fantasy";
+    text-align: center;
+    padding: 0;
+    cursor: pointer;
+}
+/* Logo titre */
+h1 {
+    font-family: "Impact, fantasy";
+    letter-spacing: 10px;
+    margin-top: 25px;
+    font-size: 40px;
+    text-shadow: 0 0 7px rgb(212, 22, 22),0 0 3px rgb(153, 43, 43);
+}
+/*soustitre logo Bruays la buissiere*/
+.titreblb {
+    margin-top: 28px;
+    font-size: 15px;
+    letter-spacing: 6px;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+}
+/* Menu */
+.div_headerMenu_2 {
+    background-color: rgb(2, 123, 139);
+    color: rgb(162, 210, 218);
+    font-size: 10px;
+    font-family: "Stencil Std, fantasy";
+    padding: 0;
+    text-align: center;
+}
+/* Animation du logo */
+.logosport {
+    color: rgb(216, 233, 241);
+    background-color: rgb(9, 115, 129);
+    font-family: "arial";
+    font-weight: bold;
+    font-style: oblique;
+    text-shadow: 5px 2px 3px rgb(0, 0, 0);
+ 
+}
+
+    .logosport p {
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+/*Affichage sport*/
+.skate, .bmx, .trot, .roller {
+    font-size: 20px;
+    letter-spacing: 6px;
+    margin-right: 10px;
+}
+/* container liste du menu*/
+.div_headerLiensMenu_2 {
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+/*Animation sur les sports*/
+.logosport {
+    font-size: 15px;
+    display: hidden;
+}
+/*Transition  lien du menu */
+.div_headerLiensMenu_2 .div_LiensMenu_2 li a {
+    transition: letter-spacing 500ms,text-shadow 1s,color 2ms;
+}
+    /* event hover sur les liens du menu */
+    .div_headerLiensMenu_2 .div_LiensMenu_2 li a:hover {
+        letter-spacing: 5px;
+        color: rgb(250, 243, 243);
+        cursor: pointer;
+        /*text-shadow:0 0 7px rgb(212, 22, 22),0 0 3px rgb(153, 43, 43);*/
+    }
+    .div_headerLiensMenu_2 .div_LiensMenu_2 li a:visited {
+        color: rgb(162, 210, 218);
+        font-size: 10px;
+        cursor: pointer;
+        text-decoration:none;
+       
+        /*text-shadow:0 0 7px rgb(212, 22, 22),0 0 3px rgb(153, 43, 43);*/
+    }
+
+/*liste du menu*/
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: inline;
+}
+
+/*Lien du menu actif */
+.active {
+    letter-spacing: 5px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 7px rgb(212, 22, 22),0 0 3px rgb(153, 43, 43);
+}
+/*----------------------------------------sous menu*/
+.sousmenu {
+    text-shadow: 1px 1px 3px rgb(6, 38, 41);
+    background-color: rgb(2, 123, 139);
+    opacity: 6;
+    margin-left: 25%;
+    width: 100%;
+    display: none;
+    /*float: left;*/
+
+}
+    /*lien sous-menu*/
+    .sousmenu p a {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+        font-size: 15px;
+        text-decoration: none;
+        margin-left: 25%;
+        margin-bottom: 5px;
+    }
+    /* Hover p sous menu selection en rouge*/
+    .sousmenu p:hover {
+        background-color: rgb(238, 93, 93);
+        cursor: pointer;
+    }
+/*P du sous menu*/
+.sousmenuP {
+    margin: 0;
+}
+
+/*panneau Newsrecherche*/
+.newsrecherche {
+    margin-top: 5px;
+    padding: 0;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 3px;
+}
+/* ---bloc div ou figure inscription connexion  */
+.headerConnexion {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/*lien inscription*/
+.inscription {
+    margin-left: 30px;
+    margin-top: 10px;
+    float: left;
+}
+
+/*lien connexion*/
+.connect {
+    margin-right: 30px;
+    float: right;
+    margin-top: 10px;
+}
+/* Panneau container news */
+.news {
+    font-family: "Impact, fantasy";
+    border-radius: 5px;
+    color: rgb(212, 22, 22);
+    font-weight: bold;
+    font-size: 15px;
+    background-color: rgb(161, 204, 212);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin: 0;
+    padding: 0;
+}
+/* news defilante */
+marquee {
+    height: 20px;
+    margin-top: 8px;
+}
+/*les liens connexion et inscription*/
+.newsrecherche .headerConnexion a {
+    color: rgb(0, 176, 207);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+    /* event hover sur le lien connexion */
+    .newsrecherche .headerConnexion a:hover {
+        background-color: rgb(216, 233, 241);
+        border-radius: 3px;
+        color: rgb(0, 176, 207);
+        cursor: pointer;
+    }
+/*active 1 liens connexion et inscription*/
+.active1 {
+    background-color: rgb(168, 212, 236);
+    border-radius: 3px;
+    cursor: pointer;
+}
+/*survol liens active1 connexion et inscription a*/
+.newsrecherche .headerConnexion .active1:hover {
+    background-color: rgb(168, 212, 236);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+/*panneau recherche*/
+.recherche {
+    margin-top: 2px;
+    margin-left: 10%;
+    border-radius: 10px;
+    color: rgb(0, 157, 196);
+    padding: 0;
+}
+
+
+/* placement mot recherche*/
+.motrecherche {
+    margin-top: 9px;
+    padding-right: 4px;
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+/* placement zone de texte recherche*/
+.TXTrecherche {
+    margin-top: 5px;
+    border: none;
+    border-color: rgb(0, 176, 207);
+    margin-bottom: 5px;
+    margin-left: 5px;
+    width: 45%;
+}
+/* input */
+input:hover {
+    border: none;
+}
+/*hr rouge */
+.barre {
+    border-top: 25px solid rgb(212, 22, 22);
+    ;
+    margin-top: 0;
+}
+/* taille image Carroussel*/
+.w-100 {
+    max-width: 100%;
+    height: auto;
+}
+
+/*Carousel*/
+#carouselExampleIndicators {
+    margin-top: 0px;
+}
+
+/*Div  du formulaire d inscription*/
+.div_inscription {
+    text-align: center;
+    display: none;
+}
+/*Div  du formulaire de connexion*/
+.seConnecter {
+    text-align: center;
+    display: none;
+}
+/*zone de texte Mot de passe */
+.pass {
+    margin-top: 12px;
+}
+/*lien oublie du formulaire de connexion*/
+.oublie {
+    color: blue;
+}
+/*bouton et lien  du formulaire de connexion*/
+.btnConnexion, .retour {
+    margin-top: 20px;
+}
+/*lien retour  du formulaire de connexion*/
+.retour {
+    font-size: 25px;
+    margin-left: 60%;
+}
+/* zone de textes mail et mot de passe */
+.login, .pass {
+    width: 300px;
+    margin: auto;
+}
+/*zone de texte Mail */
+.login {
+    margin-top: 32px;
+}
+/*zone de texte Mot de passe */
+.pass {
+    margin-top: 12px;
+}
+/* Titre connexion */
+h2 {
+    font-size: 40px;
+    margin-top: 25px;
+}
+.barrerougeheader {
+    border-top: 13px solid rgb(212, 22, 22);
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    margin:0;
+}
+
+/* icone search */
+.glyphicon, .glyphicon-search {
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 25px;
+}
+
+
+/*Glyphicon*/
+.fa-search {
+    color: rgb(0, 176, 207);
+    font-size: 25px;
+    margin-top: 6px;
+    margin-left: 11px;
+}
+
+    .fa-search:hover {
+        color: rgb(0, 121, 139);
+        font-size: 25px;
+        margin-top: 6px;
+        margin-left: 11px;
+    }
+
+.fa {
+    cursor: pointer;
+}
+
+.fa-youtube-play, .fa-facebook-f {
+    margin-top: 4px;
+    font-size: 70px;
+    color: white;
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
+}
+
+    .fa-youtube-play:hover, .fa-facebook-f:hover {
+        font-size: 80px;
+        color: white;
+        -webkit-filter: brightness(100%);
+        filter: brightness(100%);
+    }
+
+.fa-youtube-play {
+    padding: 0;
+    margin-top: 20px;
+}
+
+.fa-facebook-f {
+    padding: 0;
+    margin-top: 25px;
+}
+/*------------------------------------Footer*/
+.barrerougefooter {
+    border-top: 15px solid rgb(212, 22, 22);
+    margin-top: 0;
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    /*background-image:url("images/carroussel/imgCarroussel1.jpg");*/
+    background-color: rgb(212, 22, 22);
+    color: white;
+    text-align: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.monfooter {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.titreFooter {
+    margin-top: 15px;
+    font-weight: bold;
+}
+.reseau {
+    height: 100%;
+}
+.partenaireIMG {
+    height: 70%;
+    width: 70%;
+    -webkit-filter: brightness(80%);
+    filter: brightness(80%);
+    box-shadow: 2px 2px 2px rgba(0, 123, 139, 0.253);
+    border-radius: 10% / 50%;
+}
+
+p a .partenaireIMG:hover {
+    height: 73%;
+    width: 73%;
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+}
+
+.partenaires {
+    margin-top: 42px;
+}
+
+.divpartenaires {
+    border-left: 5px solid rgb(216, 233, 241);
+
+}
+
+.divContact {
+    border-left: 5px solid rgb(216, 233, 241);
+  
+}
+
+.divInfoContact {
+    margin-top: 40px;
+    font-size: 12px;
+}
+.mailAdmin, .mailAdmin:visited {
+    color: white;
+}
+.titreContact, .infoContact {
+    text-align: left;
+}
+
+.titreContact {
+    font-style: italic;
+}
+
+#map { /* la carte DOIT avoir une hauteur sinon elle n'apparaît pas */
+    height: 200px;
+    margin: 40px 10px 25px 10px;
+    box-shadow: 1px 1px 8px rgba(0, 123, 139, 0.253);
+    opacity: 3;
+    border: 2px solid rgba(0, 123, 139, 0.253);
+}
+
+.map {
+    border-left: 5px solid rgb(216, 233, 241);
+    height:335px;
+}
+
+.copyright {
+    background-color: rgb(216, 233, 241);
+    color: rgb(0, 121, 139);
+    font-weight: bold;
+}
+
+
+
+@media only screen and (min-width: 800px) {
+    body {
+        /*background-color: rgb(230, 203, 173);*/
+        width: 100%;
+    }
+
+    .inscription {
+        margin-left: 50px;
+    }
+
+    .connect {
+        margin-right: 50px;
+    }
+
+    .headerConnexion {
+        padding: 0;
+        margin: 0;
+    }
+}
+
+@media only screen and (max-width:1099px) {
+    body {
+        /*background-color: rgb(172, 29, 165);*/
+        width: 100%;
+    }
+
+    .inscription {
+        margin-left: 5%;
+    }
+
+    .connect {
+        margin-right: 5%;
+    }
+
+    .headerConnexion {
+        padding: 0;
+        margin: 0;
+    }
+
+    .sousmenu {
+        background-color: rgb(2, 123, 139);
+        opacity: 6;
+        margin: 0;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    .titreFooter {
+        margin-top: 50px;
+    }
+    /*Footer info des contacts*/
+    .titreContact, .infoContact {
+        text-align: center;
+    }
+
+    .divpartenaires, .divContact, .map {
+        border: none;
+    }
+}
+
+@media only screen and (width:768px) {
+    body {
+        /*background-color: rgb(172, 29, 165);*/
+        width: 100%;
+    }
+
+    .inscription {
+        margin-left: 25%;
+    }
+
+    .connect {
+        float: left;
+        margin-left: 25%;
+    }
+
+    .headerConnexion {
+        padding: 0;
+        margin: 0;
+    }
+
+    .divpartenaires, .divContact, .map {
+        border-left: 5px solid rgb(216, 233, 241);
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .divInfoContact {
+        margin-top: 40px;
+        font-size: 12px;
+    }
+
+    .divpartenaires, .divContact, .map {
+        border-left: 5px solid rgb(216, 233, 241);
+    }
+}
+
+@media only screen and (min-width:1024px) {
+    .divInfoContact {
+        font-size: 10px;
+    }
+}

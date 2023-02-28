@@ -1,0 +1,46 @@
+﻿@using Site_Roll_On_Blb.Models;
+
+@model Site_Roll_On_Blb.Models.Panneau
+
+@{
+
+    RollOnBlbEntities db = new RollOnBlbEntities();
+    ViewBag.Panneau = (from p in db.Panneau where p.visiblePanneau == 1 orderby p.OrdrePanneau ascending select p).ToList().AsEnumerable();
+    IEnumerable<Panneau> Listepanneau = ViewBag.Panneau;
+
+ 
+}
+    <marquee scrollamount="7">
+        Bienvenue                 @{
+            if (Session["Email"] != null)
+            {
+
+                @Session["Pseudo"]
+
+            }
+        }
+
+        @foreach (var item in Listepanneau)
+        {
+            try
+            {
+                if (item.textePanneau != "")
+                {
+                    <a>                  </a>
+                    <a>@item.textePanneau</a>
+
+                }
+            }
+            catch (Exception)
+            { }
+        }
+
+
+
+
+        @*sur le site de Rollen BLB C'est ici que les news vont apparaitres*@
+
+    </marquee>
+
+
+

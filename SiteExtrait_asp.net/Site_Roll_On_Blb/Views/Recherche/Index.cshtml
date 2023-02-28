@@ -1,0 +1,24 @@
+﻿@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Publication
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    IEnumerable<Publication> Listerecherche = ViewBag.recherche;
+    int i = 0;
+    string stock = "";
+}
+
+
+
+    <div class="container corp1">
+
+        @foreach (var item in Listerecherche)
+        {
+            <p>@item.TypePublication.nomTypePublication</p>
+            <p>@item.titrePublication</p>
+            <p>@item.sousTitrePublication</p>
+            <p>@item.contenuPublication</p>
+            <br />
+        }
+    </div>

@@ -1,0 +1,26 @@
+﻿
+@using Site_Roll_On_Blb.Models;
+
+@model Site_Roll_On_Blb.Models.Partenaire
+
+@{
+    //Scripts.Render("~/bundles/jquery");
+    //Scripts.Render("~/bundles/bootstrap");
+    IEnumerable<Partenaire> ListeImagePartenaire = ViewBag.Partenaire;
+    //IEnumerable<Caroussel> ListeSlideImage = ViewBag.Caroussel;
+
+}
+
+@foreach (var item in ListeImagePartenaire)
+{
+    try
+    {
+        <p class="partenaires">
+            <a href="@item.lienPartenaire" target="_blank"><img class="partenaireIMG" src="@item.urlPartenaire" alt="@item.nomPartenaire"></a>
+        </p>
+    }
+    catch (Exception)
+    {
+
+    }
+}

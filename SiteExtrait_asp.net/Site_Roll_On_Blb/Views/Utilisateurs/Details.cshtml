@@ -1,0 +1,114 @@
+﻿@model Site_Roll_On_Blb.Models.Utilisateur
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>Utilisateur</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.mailUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mailUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.pseudoUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.pseudoUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.nomUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nomUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.prenomUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.prenomUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DateNaissanceUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DateNaissanceUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.mdpUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.mdpUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.dateInscriptionUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.dateInscriptionUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.tokenUtilisateur)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.tokenUtilisateur)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Adhesion.nomAdhesion)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Adhesion.nomAdhesion)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Sport.nomSport)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Sport.nomSport)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Statut.nomStatut)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Statut.nomStatut)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idUtilisateur }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

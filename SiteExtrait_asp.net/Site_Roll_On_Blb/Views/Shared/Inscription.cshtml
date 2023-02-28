@@ -1,0 +1,35 @@
+﻿@using Site_Roll_On_Blb.Models
+@model Site_Roll_On_Blb.Models.Utilisateur
+<!--Formulaire de connexion-->
+<!--Formulaire d'inscription-->
+    <div class="div_inscription">
+        @using (Html.BeginForm("Inscription", "Utilisateur"))
+        {
+            <!-- titre-->
+            <h1>Inscrivez-vous gratuitement à notre site : </h1>
+            <!-- message-->
+            <p id="Messageinscription" class="Messageinscription"></p>
+            <!-- mail-->
+            <input type="text" id="mail" name="mail" class="login form-control" placeholder="Mail" />
+            <!-- mdp-->
+            <input type="password" id="password" name="password" class="pass form-control" placeholder="Mot de passe" />
+
+            <!-- mdp repeter-->
+            <input type="password" id="repeatpassword" class="pass form-control" placeholder="Répéter le mot de passe" />
+            <!-- pseudo-->
+            @Html.EditorFor(model => model.pseudoUtilisateur, new { htmlAttributes = new { @class = "pass form-control", @placeholder = "Saisir un pseudo" } })
+            <!--deja inscrit ? -->
+            <p class="txtsmall">Si vous êtes déjà inscrit, connectez-vous <a href="#" class="lienconnexion">ici</a></p>
+            <!-- btn valider inscrition-->
+            <input type="button" class="btn btn-primary" id="validinscription" onclick="Inscription()" value="S'inscrire" />
+
+            @Html.ValidationMessageFor(model => model.pseudoUtilisateur, "", new { @class = "text-danger" })
+            <br />
+            <div class="retouraccueil">
+                <a class="retour" id="retourInscription" href="">Retour</a>
+            </div>
+        }
+
+
+    </div>
+

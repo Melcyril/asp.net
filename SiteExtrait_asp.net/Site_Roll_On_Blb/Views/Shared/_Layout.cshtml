@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Roll On Blb</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @*Partial vue Header*@
+    @Html.Partial("~/Views/Shared/Header.cshtml", new ViewDataDictionary { { "_Panneau", "Panneaux" } })
+    @*Partial vue Login*@
+
+    @* new ViewDataDictionary { { Methode, Controleur } }*@
+    @Html.Partial("~/Views/Shared/Login.cshtml", new ViewDataDictionary { { "Login", "Utilisateurs" } })
+    @*Partial vue Inscription*@
+    @Html.Partial("~/Views/Shared/Inscription.cshtml", new ViewDataDictionary { { "Inscription", "Utilisateurs" } })
+    <div class="container-fluid body-content">
+        @RenderBody()
+
+    </div>
+    @*Partial vue Footer*@
+    @Html.Partial("~/Views/Shared/Footer.cshtml")
+
+    @*Chargement de Jquery et boostrap*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

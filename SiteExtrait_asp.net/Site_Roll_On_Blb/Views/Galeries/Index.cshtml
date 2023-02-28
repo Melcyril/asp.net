@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Galerie>
+
+@{
+   Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            font-size: small;
+        }
+
+
+
+        a {
+            color: whitesmoke;
+        }
+
+            a:hover {
+                color: whitesmoke;
+                background-color: rgba(182, 63, 57, 0.582);
+            }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.datePostGalerie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.urlGalerie)
+                </th>
+                @*<th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.AltGalerie)
+                </th>*@
+                @*<th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.nomGalerie)
+                </th>*@
+                @*<th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.ordreGalerie)
+                </th>*@
+                <th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.Statut.nomStatut)
+                </th>
+                <th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.TypeGalerie.nomTypeGalerie)
+                </th>
+                <th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.visibleGalerie)
+                </th>
+                <th class="masquerPort1">
+                    @Html.DisplayNameFor(model => model.Sport.nomSport)
+                </th>
+                <th class="create">
+                    <p>
+                        @Html.ActionLink("Create New", "Create")
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td class="masquerPort1">
+                        @Html.DisplayFor(modelItem => item.datePostGalerie)
+                    </td>
+                    <td class="coltable">
+                        @Html.DisplayFor(modelItem => item.urlGalerie)
+                    </td>
+                    @*<td class="masquerPort1">
+                        @Html.DisplayFor(modelItem => item.AltGalerie)
+                    </td>*@
+                    @*<td class="masquerPort1 coltable">
+                        @Html.DisplayFor(modelItem => item.nomGalerie)
+                    </td>*@
+                    @*<td class="masquerPort1">
+                        @Html.DisplayFor(modelItem => item.ordreGalerie)
+                    </td>*@
+                    <td class="masquerPort1">
+                        @Html.DisplayFor(model => item.Statut.nomStatut)
+                    </td>
+                    <td class="masquerPort1 coltable">
+                        @Html.DisplayFor(modelItem => item.TypeGalerie.nomTypeGalerie)
+                    </td>
+                    <td class="masquerPort1">
+                        @Html.DisplayFor(modelItem => item.visibleGalerie)
+                    </td>
+                    <td class="masquerPort1 coltable">
+                        @Html.DisplayFor(modelItem => item.Sport.nomSport)
+                    </td>
+                    <td class="edd">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.idGalerie }) <br /><br />
+                        @Html.ActionLink("Details", "Details", new { id = item.idGalerie }) <br /><br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.idGalerie })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

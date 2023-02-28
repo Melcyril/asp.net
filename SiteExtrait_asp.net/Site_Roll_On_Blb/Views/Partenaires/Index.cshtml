@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Partenaire>
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            font-size: small;
+        }
+
+        html {
+            overflow-x: visible;
+        }
+
+        a {
+            color: whitesmoke;
+        }
+
+            a:hover {
+                color: whitesmoke;
+                background-color: rgba(182, 63, 57, 0.582);
+            }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.nomPartenaire)
+                </th>
+                @*<th>
+                    @Html.DisplayNameFor(model => model.urlPartenaire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.lienPartenaire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.altPartenaire)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrdrePartenaire)
+                </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.visiblePartenaire)
+                </th>
+                <th class="create">
+                    <p>
+                        @Html.ActionLink("Créer un partenaire", "Create")
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nomPartenaire)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.urlPartenaire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.lienPartenaire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.altPartenaire)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrdrePartenaire)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.visiblePartenaire)
+                    </td>
+                    <td class="edd">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.idPartenaire,title="Modifier un partenaire" }) <br /><br />
+                        @Html.ActionLink("Details", "Details", new { id = item.idPartenaire,title="Infos du partenaire" }) <br /><br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.idPartenaire,title="Supprimer un partenaire" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

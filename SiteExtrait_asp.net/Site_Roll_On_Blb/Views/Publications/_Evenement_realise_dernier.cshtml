@@ -1,0 +1,115 @@
+﻿@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Publication
+
+@{
+    IEnumerable<Publication> Liste_event_realise = TempData["EvtRealiseDernier"] as IEnumerable<Publication>; ;
+    int i = 0;
+    string stock = "";
+    string[] tabextension;
+    int dernierpoint = 0;
+    int indice;
+    string extension = "";
+    string url = "";
+    string url1 = "";
+}
+
+<h1>Événements réalisés</h1>
+<div class="divEventRealise">
+
+    @foreach (var item in Liste_event_realise)
+    {
+
+        try
+        {
+            //if (item.datePrevisionPublication < DateTime.Now)
+            //{
+            if (!item.urlPublication.Equals(""))
+            {
+    <div class="articleRealisedernier">
+        <h3>@item.titrePublication</h3>
+
+        @{
+            tabextension = item.urlPublication.Split('.');
+            dernierpoint = tabextension.Count();
+            indice = dernierpoint - 1;
+            extension = tabextension[indice].ToLower();
+            url1 = item.urlPublication;
+            string[] urlsplit;
+            urlsplit = url1.Split('/');
+            url = urlsplit[0] + "/" + urlsplit[1] + "/Mini/" + urlsplit[2];
+
+        }
+        @if (extension.Equals("jpg") || extension.Equals("jpeg") || extension.Equals("gif") || extension.Equals("png"))
+        {
+
+            <img class="img_article" src="@url" width="70%">
+        }
+        else if (extension.Equals("3gp") || extension.Equals("avi") || extension.Equals("mov") || extension.Equals("mp4"))
+        {
+            <video controls width="70%">
+                <source src="@url1" type="video/mp4" class="embed-responsive-item vid_article"/>
+            </video>
+        }
+        <p class="soustitredernier">@item.sousTitrePublication</p>
+        <hr class="barrerouge">
+        @{
+            stock = "miniarticleRealisedernier" + i.ToString();
+        }
+        <p class="miniArticledernier" id="@stock">
+            @Html.Label("textePublicationFuturedernier", item.souscontenuPublication)
+        </p>
+        @{
+            stock = "normalarticleRealisedernier" + i.ToString();
+        }
+        <p class="normalArticledernier" id="@stock">
+            @Html.Label("textePublication", item.contenuPublication)
+        </p>
+        <div class="lienArticledernier">
+            @{
+                stock = "agrandirRealisedernier" + i.ToString();
+            }
+            @if (item.souscontenuPublication != item.contenuPublication)
+            {
+                <a class="agrandirRealisedernier" id="@stock" aria-labelledby="shopping cart items"><i class="fa fa-chevron-down"></i></a>
+            }
+
+            @{
+                stock = "reduireRealisedernier" + i.ToString();
+            }
+            <a class="reduireRealisedernier" id="@stock" aria-labelledby="shopping cart items"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+    </div>
+            }
+            else
+            {
+                <div class="div_artnomediaFuturedernier">
+
+                    @{
+                        stock = "normalarticle" + i.ToString();
+                    }
+
+                    <h5> @Html.Label("textePublication", item.titrePublication)</h5>
+
+                    <p class="p_pub_artnomediaFuturedernier" id="@stock">
+                        <a class="a_pub_artnomediaFuturedernier">
+                            @Html.Label("textePublication", item.contenuPublication)
+                        </a>
+                    </p>
+                </div>
+            }
+
+
+            <hr class="barrerougeheader">
+            i++;
+        }
+        @*}*@
+        catch (Exception) { }
+    }
+
+</div>
+<p>
+    @Html.ActionLink("Voir tous les événements réalisés", "_Evenement_realise", "Publications", null, new { @id = "eventrea", @class = "lienEvent" })
+</p>
+
+

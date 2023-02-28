@@ -1,0 +1,246 @@
+@using System.Configuration
+@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Panneau
+@{  Workflow wkf = new Workflow();
+    int ClefAdmin = Convert.ToInt32(ConfigurationManager.AppSettings["AccesStatut"]);
+    string maclass = "";
+}
+    <header id="header">
+        <div class="container-fluid headLogoMenu">
+            <div class="row header">
+                <!-- logo -->
+                <div class="col-md-3 div_headerLogo_1">
+
+                    <a href="/" title="Accueil"><img src="~/Content/images/logo.png" width="100%" height="100%" /></a>
+
+                </div>
+                <!-- Menu -->
+                <div class="col-md-9 div_headerMenu_2">
+                    <div class="logosport">
+
+                        <span class="skate skatetxt"></span>
+                        <img class="skate" src="~/Content/sports/sk8.png"></img>
+                        <span class="bmx bmxtxt"></span>
+                        <img class="bmx" src="~/Content/sports/bmx.png"></img>
+                        <span class="trot trottxt"></span>
+                        <img class="trot" src="~/Content/sports/trott.png"></img>
+                        <span class="roller rollertxt"></span>
+                        <img class="roller" src="~/Content/sports/roller.png"></img>
+
+                    </div>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light divtogglemenu">
+                 
+                        <button class="navbar-toggler btntoggle" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+
+                    </nav>
+                    <!-- Liste de lien du menu-->
+
+                    <ul class="row div_headerLiensMenu_2">
+
+                        <li><a class="LiensMenu_2 LiensMenu_2b">L'ASSOCIATION</a></li>
+                        <ul class="sousmenuPort0">
+                            <li>
+                                @*page method controller*@
+                                @Html.ActionLink("Présentation", "_Presentation", "Publications", null, new { @id = "presentation", @class = "lienSousMenu lienSousMenub" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Comment devenir adhérant ?", "_DevenirAdherant", "Publications", null, new { @id = "adhesion", @class = "lienSousMenu lienSousMenub" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Sports", "_Sports", "Publications", null, new { @class = "lienSousMenu lienSousMenuc" })
+                            </li>
+
+                        </ul>
+                        <li><a class="LiensMenu_2 LiensMenu_2c">SKATEPARK</a></li>
+
+                        <ul class="sousmenuPort1">
+                            <li>
+                                @*page method controller*@
+                                @Html.ActionLink("Extérieur", "_Skatepark", "Publications", null, new { @id = "presentation", @class = "lienSousMenu lienSousMenub" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Intérieur", "_Interieur", "Publications", null, new { @id = "adhesion", @class = "lienSousMenu lienSousMenub" })
+                            </li>
+                        </ul>
+
+                        <li><a class="LiensMenu_2 LiensMenu_2d">EVENEMENTS</a></li>
+                        <ul class="sousmenuPort2">
+               
+                            <li>
+                                @Html.ActionLink("Événements réalisés", "_Evenement_realise", "Publications", null, new { @id = "eventrea", @class = "lienSousMenu lienSousMenud" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Événements futures", "_Evenement_future", "Publications", null, new { @id = "eventfutur", @class = "lienSousMenu lienSousMenud" })
+                            </li>
+                        </ul>
+                        <li> <a class="LiensMenu_2 LiensMenu_2e">INITIATIONS & COURS</a></li>
+
+                        <ul class="sousmenuPort3">
+                            <li>
+                                @Html.ActionLink("Initiations et découvertes", "_Initiation_Decouverte", "Publications", null, new { @id = "initiation", @class = "lienSousMenu lienSousMenue" })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Cours", "_Cours", "Publications", null, new { @id = "cours", @class = "lienSousMenu lienSousMenue" })
+                            </li>
+                        </ul>
+                       
+                        <li> <a href="~/Galeries/_galerie" class="LiensMenu_2 LiensMenu_22">GALERIES</a></li>
+
+                        @if (wkf.gestionConnexion(ClefAdmin))
+                        {
+                            <li><a class="LiensMenu_2 LiensMenu_2f">ADMIN</a></li>
+                            <ul class="sousmenuPort4">
+                                <li>
+                                    @Html.ActionLink("utilisateurs", "index", "Utilisateurs", null, new { @id = "utilisateurs", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("publications", "index", "Publications", null, new { @id = "publications", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("panneau", "index", "Panneaux", null, new { @id = "panneaux", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Galeries", "index", "Galeries", null, new { @id = "galeries", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Caroussel", "index", "Caroussels", null, new { @id = "Caroussels", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                                <li>
+                                    @Html.ActionLink("Partenaires", "index", "Partenaires", null, new { @id = "Partenaires", @class = "lienSousMenu lienSousMenuf" })
+                                </li>
+                            </ul>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------Sous-Menu pc-->
+        <ul class="sousmenu sousmenu0">
+
+            <li>
+                @*page method controller*@
+                @Html.ActionLink("Présentation", "_Presentation", "Publications", null, new { @id = "presentation", @class = "lienSousMenu lienSousMenub" })
+            </li>
+            <li>
+                @Html.ActionLink("Comment devenir adhérent ?", "_DevenirAdherant", "Publications", null, new { @id = "adhesion", @class = "lienSousMenu lienSousMenub" })
+            </li>
+            <li>
+                @Html.ActionLink("Sports", "_Sports", "Publications", null, new { @class = "lienSousMenu lienSousMenuc" })
+            </li>
+
+        </ul>
+        <ul class="sousmenu sousmenu1">
+
+            <li>
+                @*page method controller*@
+                @Html.ActionLink("Extérieur", "_skatepark", "Publications", null, new { @id = "presentation", @class = "lienSousMenu lienSousMenub" })
+            </li>
+            <li>
+                @Html.ActionLink("Intérieur", "_interieur", "Publications", null, new { @id = "adhesion", @class = "lienSousMenu lienSousMenub" })
+            </li>
+        </ul>
+
+
+        <ul class="sousmenu sousmenu2">
+
+            <li>
+                @Html.ActionLink("Événements réalisés", "_Evenement_realise", "Publications", null, new { @id = "eventrea", @class = "lienSousMenu lienSousMenud" })
+            </li>
+            <li>
+                @Html.ActionLink("Événements futures", "_Evenement_future", "Publications", null, new { @id = "eventfutur", @class = "lienSousMenu lienSousMenud" })
+            </li>
+        </ul>
+        @if (wkf.gestionConnexion(ClefAdmin))
+        {
+            maclass = "sousmenu sousmenu3 sousmenu3admin";
+        }
+        else
+        {
+            maclass = "sousmenu sousmenu3";
+        }
+        <ul class="@maclass">
+
+            <li>
+                @Html.ActionLink("Initiations et découvertes", "_Initiation_Decouverte", "Publications", null, new { @id = "initiation", @class = "lienSousMenu lienSousMenue" })
+            </li>
+            <li>
+                @Html.ActionLink("Cours", "_Cours", "Publications", null, new { @id = "cours", @class = "lienSousMenu lienSousMenue" })
+            </li>
+        </ul>
+        @if (wkf.gestionConnexion(ClefAdmin))
+        { 
+            <ul class="sousmenu sousmenu4 sousmenu4admin">
+
+                <li>
+                    @Html.ActionLink("utilisateurs", "index", "Utilisateurs", null, new { @id = "utilisateurs", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+                <li>
+                    @Html.ActionLink("publications", "index", "Publications", null, new { @id = "publications", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+                <li>
+                    @Html.ActionLink("panneau", "index", "Panneaux", null, new { @id = "panneaux", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+                <li>
+                    @Html.ActionLink("Galeries", "index", "Galeries", null, new { @id = "galeries", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+                <li>
+                    @Html.ActionLink("Caroussel", "index", "Caroussels", null, new { @id = "Caroussels", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+                <li>
+                    @Html.ActionLink("Partenaires", "index", "Partenaires", null, new { @id = "Partenaires", @class = "lienSousMenu lienSousMenuf" })
+                </li>
+            </ul>
+         }
+
+        <!-- Inscription Connexion panneau news et recherche-->
+        <div class="container-fluid" id="newsrecherche">
+            <div class="row newsrecherche">
+                <div class="col-md-3 headerConnexion">
+                    @{
+                        if (Session["Email"] != null || HttpContext.Current.Request.Cookies.Get("BlbCookie") != null)
+                        {
+
+                            <p class="pseudo">@Session["Pseudo"]</p>
+
+                            <a href="@Url.Action("Deconnexion","Home")" class="connect">Déconnexion </a>
+
+
+                        }
+                        else
+                        {
+                            <a class="inscription">Inscription </a>
+                            <a class="connect">Connexion </a>
+                        }
+                    }
+                </div>
+
+                <div class="col-md-3 news">
+                    @Html.Partial("~/Views/Panneaux/_Panneau.cshtml")
+
+                </div>
+
+                <div class="col-md-5">
+                    <div class="row recherche">
+
+                        @using (Html.BeginForm("recherche", "Publications"))
+                        {
+
+
+                            @Html.TextBox("recherche", null, new { @class = "TXTrecherche", placeholder = "Recherche" })
+                            <input type="submit" class="btn btn-info submitrecherche" value="Recherche">
+
+                        }
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <hr class="barrerougeheader">
+    </header>
+

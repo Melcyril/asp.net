@@ -1,0 +1,195 @@
+﻿@using Site_Roll_On_Blb.Models; 
+@{
+    ViewBag.Title = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Scripts.Render("~/bundles/jquery");
+
+    List<PublicationImage> images = ViewBag.ListeImages;
+}
+
+
+
+@Html.Partial("~/Views/Caroussels/_Caroussel.cshtml", new ViewDataDictionary { { "Caroussel", ViewData["Caroussel"] } })
+@Html.Partial("~/Views/Caroussels/_CarousselMini.cshtml", new ViewDataDictionary { { "CarousselMini", ViewData["CarousselMini"] } })
+@{
+
+    int i = 0;
+    string stock = "";
+    string[] tabextension;
+    //string[] taburl;
+    int dernierpoint = 0;
+    int indice;
+    string extension = "";
+    string classe = "";
+    string datepost = "";
+}
+
+
+
+<div class="container-fluid corp1">
+    <div class="row">
+        @*partie News*@
+ 
+        <div class="col-md-9 pubnews">
+            <div class="col-md-12 divtitrenews"><h1 class=" titrenews">NEWS</h1><hr class="barrerougeheader"></div>
+            @foreach (var item in Model.ItemsNews)
+            {
+                try
+                {
+                    bool found = false;
+                    foreach (var image in images)
+                    {
+                        if (image.idPublication == item.idPublication)
+                        {
+                            found = true;
+                            break;
+                        }
+                    }
+
+
+                    if (found == false)
+                    {
+                        <div class="div_artnomedia">
+
+                            @{
+                                stock = "normal_article" + i.ToString();
+                            }
+
+                            <h3 class="titrenomedia">@item.titrePublication</h3>
+
+                            <p class="p_pub_artnomedia" id="@stock">
+                                @item.contenuPublication
+                            </p>
+                            <p class="datepost centrer">Posté le @item.datePostPublication</p>
+                        </div>
+
+                    }
+                    else
+                    {
+                        //tableau d'url
+
+                        List<string> taburl = new List<string>();
+
+                        foreach (var image in images)
+                        {
+                            if (image.idPublication == item.idPublication)
+                            {
+                                taburl.Add(image.urlPublicationImage);
+                            }
+                        }
+
+                        //                                    taburl = new string[] { item.urlPublication, item.url1Publication, item.url2Publication, item.url3Publication, item.url4Publication, item.url5Publication };
+                        <div class="art">
+                            <h3>@item.titrePublication</h3>
+
+                            <hr class="barrebleu">
+
+                            @for (int cpt = 0; cpt < taburl.Count; cpt++)
+                            {
+                                if (taburl[cpt] != null)
+                                {
+                                    //recherche de l'extension
+                                    tabextension = taburl[cpt].Split('.');
+                                    dernierpoint = tabextension.Count();
+                                    indice = dernierpoint - 1;
+                                    extension = tabextension[indice].ToLower();
+
+                                    //comparaison de l'extension du fichier pour reconaitre si c'est une photo ou une video
+                                    if (extension.Equals("jpg") || extension.Equals("jpeg") || extension.Equals("gif") || extension.Equals("png"))
+                                    {
+
+                                        <img class="img_article" src="@taburl[cpt]">
+                                    }
+                                    else if (extension.Equals("3gp") || extension.Equals("avi") || extension.Equals("mov") || extension.Equals("mp4"))
+                                    {
+                                        <video controls controlsList="nodownload" class="embed-responsive-item vid_article">
+                                            <source src="@taburl[cpt]" type="video/mp4" />
+                                        </video>
+
+
+                                    }
+                                }
+                            }
+                            <p class="soustitredernier colorsize">@item.sousTitrePublication</p>
+                            <hr class="barrebleu">
+                            @{
+                                stock = "mini_article" + i.ToString();
+                            }
+
+                            <p class="p_artmini" id="@stock">
+                                @item.souscontenuPublication
+                            </p>
+                            @{
+                                stock = "normal_article" + i.ToString();
+                            }
+                            <p class="p_art" id="@stock">
+                                @item.contenuPublication
+                            </p>
+
+                            <div class="lien_article">
+
+                                @{
+
+                                    stock = "agrandir" + i.ToString();
+                                }
+                                @if (item.souscontenuPublication != item.contenuPublication)
+                                {
+                                    <a class="agrandir" id="@stock" title="agrandir"><i class="fa fa-chevron-down"></i></a>
+                                }
+                                @{
+                                    stock = "reduire" + i.ToString();
+                                }
+                                <a class="reduire" id="@stock" title="réduire"><i class="fa fa-chevron-up"></i></a>
+
+                            </div>
+                            <p class="datepost">Posté le @item.datePostPublication</p>
+
+                        </div>
+                    }
+
+                    @*<hr class="barrerouge">*@
+
+                    i++;
+                }
+                catch (Exception) { }
+            }
+
+            @if (Model.Pager.PageFin > 1)
+            {
+                <div aria-label="Page navigation example" class="divpagination">
+                    <ul class="pagination">
+                        @if (Model.Pager.CurrentPage > 1)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="~/">Premier page</a>
+                            </li>
+                        }
+                        @for (var page = Model.Pager.PageDebut; page <= Model.Pager.PageFin; page++)
+                        {
+
+                            <li class="page-item" class="@(page == Model.Pager.CurrentPage ?"active" : "")">
+                                <a class="page-link" href="~/?page=@page">@page</a>
+                            </li>
+                        }
+                        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                        {
+                            <li class="page-item">
+                                <a class="page-link" href="~/?page=@(Model.Pager.TotalPages)">Derniere page</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            }
+            <a class="retourHP" title="Retour haut de page"><i class="fa fa-arrow-up"></i></a>
+
+        </div>
+
+        @*partie evenement*@
+        <div class="col-md-3 contenupartiedroite">
+
+            @Html.Partial("~/Views/Publications/_Evenement_future_dernier.cshtml", new ViewDataDictionary { { "_Evenement_future_dernier", ViewBag.EvenementRealiseDernier } })
+
+            @Html.Partial("~/Views/Publications/_Evenement_realise_dernier.cshtml", new ViewDataDictionary { { "_Evenement_realise_dernier", ViewBag.EvenementFutureDernier } })
+        </div>
+    </div>
+</div>

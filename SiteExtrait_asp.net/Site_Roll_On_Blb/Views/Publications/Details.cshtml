@@ -1,0 +1,165 @@
+﻿@model Site_Roll_On_Blb.Models.Publication
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        body{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>Publication</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.datePostPublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.datePostPublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.datePrevisionPublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.datePrevisionPublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.titrePublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.titrePublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.sousTitrePublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.sousTitrePublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.souscontenuPublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.souscontenuPublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.contenuPublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contenuPublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.urlPublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.urlPublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.url1Publication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.url1Publication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.url2Publication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.url2Publication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.url3Publication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.url3Publication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.url4Publication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.url4Publication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.url5Publication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.url5Publication)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.idStatut)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.idStatut)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.visiblePublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.visiblePublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Participation.nomParticipation)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Participation.nomParticipation)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TypePublication.nomTypePublication)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TypePublication.nomTypePublication)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Utilisateur.mailUtilisateur)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Utilisateur.mailUtilisateur)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idPublication }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

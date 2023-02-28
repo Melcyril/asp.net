@@ -1,0 +1,85 @@
+﻿@model Site_Roll_On_Blb.Models.Partenaire
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Partenaire</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.nomPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.nomPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.urlPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.urlPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.lienPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.lienPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.altPartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.altPartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.OrdrePartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.OrdrePartenaire)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.visiblePartenaire)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.visiblePartenaire)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

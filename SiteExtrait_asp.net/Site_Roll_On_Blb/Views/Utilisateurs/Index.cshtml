@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Utilisateur>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+
+        a{
+            color:whitesmoke;
+        }
+        a:hover{
+            color:whitesmoke;
+            background-color: rgba(182, 63, 57, 0.582);
+        }
+
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col"  class="create">
+                    <p>
+                        @Html.ActionLink("Créer un utilisateur", "create")
+                    </p>
+                </th>
+                <th scope="col">
+                   mail
+                </th>
+                <th scope="col" class="masquerPort">
+                    date Inscription
+                </th>
+                <th scope="col">
+                   Statut
+                </th>
+                <th scope="col" class="masquerPort">
+                   Pseudo
+                </th>
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.Sport.nomSport)
+                </th>
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.nomUtilisateur)
+                </th>
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.prenomUtilisateur)
+                </th>
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.DateNaissanceUtilisateur)
+                </th>
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.mdpUtilisateur)
+                </th>
+
+                <th scope="col" class="masquer">
+                    @Html.DisplayNameFor(model => model.tokenUtilisateur)
+                </th>
+
+
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td  class="edd">
+                    @Html.ActionLink("Modifier", "Edit", new { id = item.idUtilisateur ,title="Modifier utilisateur"}) <br /><br />
+                    @Html.ActionLink("Details", "Details", new { id = item.idUtilisateur ,title="Voir utilisateur" }) <br /><br />
+                    @Html.ActionLink("Supprimer", "Delete", new { id = item.idUtilisateur ,title="Supprimer utilisateur" })
+                </td>
+                <th scope="row">
+                    @Html.DisplayFor(modelItem => item.mailUtilisateur)
+                </th>
+                <td  class="masquerPort coltable">
+                    @Html.DisplayFor(modelItem => item.dateInscriptionUtilisateur)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Statut.nomStatut)
+                </td>
+                <td  class="masquerPort coltable">
+                    @Html.DisplayFor(modelItem => item.pseudoUtilisateur)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.Sport.nomSport)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.nomUtilisateur)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.prenomUtilisateur)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.DateNaissanceUtilisateur)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.mdpUtilisateur)
+                </td>
+                <td class="masquer">
+                    @Html.DisplayFor(modelItem => item.tokenUtilisateur)
+                </td>
+            </tr>
+            }
+        <tbody>
+
+    </table>
+</body>
+</html>

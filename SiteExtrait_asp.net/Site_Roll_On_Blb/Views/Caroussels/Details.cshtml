@@ -1,0 +1,63 @@
+﻿@model Site_Roll_On_Blb.Models.Caroussel
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+    <style>
+        body {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h4>Caroussel</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.visibleCaroussel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.visibleCaroussel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.altCaroussel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.altCaroussel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.urlminiCaroussel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.urlminiCaroussel)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.urlCaroussel)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.urlCaroussel)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.idCaroussel }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

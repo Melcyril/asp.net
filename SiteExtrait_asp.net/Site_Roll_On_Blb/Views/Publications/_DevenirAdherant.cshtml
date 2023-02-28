@@ -1,0 +1,45 @@
+﻿@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Publication
+@using System.Configuration;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Workflow wkf = new Workflow();
+    string mess = "";
+    string urlSite = ConfigurationManager.AppSettings["urlSite"];
+}
+    <div class="container page adherant center">
+        <img src="~/Content/images/logo.png" width="50%" />
+        <br /> <br />
+        <h1>Comment devenir Adhérent ?</h1>
+        <br />
+        <div class="texteadherant">
+            <p>
+                Si vous désirez pratiquer,vous améliorer, profiter des lieux que nous pouvons mettre à votre
+                disposition
+            </p>
+
+            <p>N'hésitez pas venir vous inscrire chez nous en tant qu'adhérant</p>
+            <p>Contactez-nous par téléphone ou par mail pour adhérer à l'association ou obtenir davantages de renseignements</p>
+            <p>L'inscription se fait donc à l'année et vous devez disposer de votre équipement pour pouvoir rider</p>
+
+            <p>Tarif adhérent : 40 euros/an</p>
+        </div>
+        @if (Session["niveauStatut"] == null || Int32.Parse(Session["niveauStatut"].ToString()) == 0)
+        {
+            mess = "Inscrivez vous et connectez vous pour récupérer le formulaire d'adhésion";
+        }
+        else
+        {
+
+            string url = urlSite + "/Content/pdf/formulaireAdherent.pdf";
+            <embed src=@url width=800 height=500 type='application/pdf' />
+            mess = "Vous pouvez remplir et imprimer le formulaire";
+
+        }
+        <br />
+        <div class="centrer">
+            <p> @mess</p>
+        </div>
+        <br /> <br />
+    </div>
+

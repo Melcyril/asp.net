@@ -1,0 +1,9 @@
+﻿
+@if (ViewBag.Myrecherche != null)
+{
+    @Html.Partial("~/Views/Publications/affichage.cshtml")
+}
+else
+{
+    @ViewBag.error
+}

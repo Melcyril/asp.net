@@ -1,0 +1,106 @@
+﻿@*@using Site_Roll_On_Blb.Models;
+@model Site_Roll_On_Blb.Models.Galerie*@
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    //IEnumerable<Galerie> ListeGalerie = ViewBag.Galerie;
+    string[] tabextension;
+    string[] tabmini;
+    string extension = "";
+    int dernierpoint = 0;
+    int indice;
+    string url = "";
+    string urlmini = "";
+    string urlnormal = "";
+    string stock = "";
+    int i = 0;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_Galerie</title>
+</head>
+<body>
+    <h1 class="centrer">Galeries</h1>
+    <div class="center pagecour">
+        @foreach (var item in Model.ItemsGalerie)
+        {
+            try
+            {
+                if (item.urlGalerie != null)
+                {
+                    url = "";
+                    //recherche de l'extension
+                    tabextension = item.urlGalerie.Split('.');
+                    dernierpoint = tabextension.Count();
+                    indice = dernierpoint - 1;
+                    extension = tabextension[indice].ToLower();
+                    //Split de url
+                    tabmini = item.urlGalerie.Split('/');
+                    //recuperation de l'url sans le nom du fichier et sans l'extension
+                    for (int cpt = 0; cpt < tabmini.Length; cpt++)
+                    {
+                        if (cpt != tabmini.Length - 1)
+                        {
+                            url = url + tabmini[cpt] + "/";
+                        }
+                    }
+                    //Composition de l'url mini pour acceder à l'image
+                    urlmini = "../" + url + "mini/" + tabmini[tabmini.Length - 1];
+                    //Composition de l'url de la grande image
+                    urlnormal = "../" + item.urlGalerie;
+                    //comparaison de l'extension du fichier pour reconaitre si c'est une photo ou une video
+                    if (extension.Equals("jpg") || extension.Equals("jpeg") || extension.Equals("gif") || extension.Equals("png"))
+                    {
+                        stock = "imgmini" + i.ToString();
+                        <img class="imgmini" id="@stock" src="@urlmini" title="Galerie">
+                        stock = "divmodal" + i.ToString();
+                        <div class="divmodal" id="@stock">
+                         <span class="close" title="Fermer">&times;</span>
+                            <img class="imgmodal" src="@urlnormal">
+                               
+                        </div>
+                    }
+                    else if (extension.Equals("3gp") || extension.Equals("avi") || extension.Equals("mov") || extension.Equals("mp4"))
+                    {
+                        <video controls width="70%" controlsList="nodownload">
+                            <source src="@url" type="video/mp4" />
+                        </video>
+                    }
+                }
+                i++;
+                <br />
+            }
+            catch (Exception) { }
+        }
+
+        @if (Model.Pager1.PageFin > 1)
+        {
+            <div aria-label="Page navigation example">
+                <ul class="pagination">
+                    @if (Model.Pager1.CurrentPage > 1)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="~/Galeries/_Galerie">Premier page</a>
+                        </li>
+                    }
+                    @for (var page = Model.Pager1.PageDebut; page <= Model.Pager1.PageFin; page++)
+                    {
+                        <li class="page-item" class="@(page == Model.Pager1.CurrentPage ?"active" : "")">
+                            <a class="page-link" class="page-link" href="~/Galeries/_Galerie?page=@page">@page</a>
+                        </li>
+                    }
+                    @if (Model.Pager1.CurrentPage < Model.Pager1.TotalPages)
+                    {
+                        <li class="page-item">
+                            <a class="page-link" href="~/Galeries/_Galerie?page=@(Model.Pager1.TotalPages)">Derniere page</a>
+                        </li>
+                    }
+                </ul>
+             </div>
+         }
+    </div>
+</body>
+</html>

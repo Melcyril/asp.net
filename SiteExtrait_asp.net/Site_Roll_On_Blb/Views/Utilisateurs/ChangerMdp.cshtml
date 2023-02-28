@@ -1,0 +1,43 @@
+﻿@{
+    Layout = ("~/Views/Shared/_Layout.cshtml");
+}
+
+
+@Html.Hidden("email", TempData["email"])
+
+@if (ViewBag.expire != null)
+{
+    <div id="error-box-token" class="textvalidcompte">
+        <div class="face">
+            <div class="glyphicon glyphicon-remove"></div>
+        </div>
+        <div class="message titrelogin"><h1 class="alert">@ViewBag.expire!</h1></div>
+        <a class="retour" href="~/Utilisateurs/DemandeMotdepasse">Retour</a>
+    </div>
+}
+
+@ViewBag.MeSSAGEERREUR
+
+
+    @*<style>
+        body {
+            background: black;
+        }
+
+        .slogan {
+            display: none;
+        }
+
+        .header li {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+
+        hr {
+            display: none;
+        }
+
+    </style>*@

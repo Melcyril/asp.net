@@ -1,0 +1,1328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="RollOnBlbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adhesion">
+          <Key>
+            <PropertyRef Name="idAdhesion" />
+          </Key>
+          <Property Name="idAdhesion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dateAdhesion" Type="datetime" Nullable="false" />
+          <Property Name="dateFinAdhesion" Type="datetime" />
+          <Property Name="nomAdhesion" Type="varchar(max)" />
+          <Property Name="prenomAdhesion" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Caroussel">
+          <Key>
+            <PropertyRef Name="idCaroussel" />
+          </Key>
+          <Property Name="idCaroussel" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="visibleCaroussel" Type="tinyint" Nullable="false" />
+          <Property Name="urlminiCaroussel" Type="varchar(max)" />
+          <Property Name="urlCaroussel" Type="varchar(max)" />
+          <Property Name="altCaroussel" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="idForum" />
+          </Key>
+          <Property Name="idForum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datePostForum" Type="datetime" Nullable="false" />
+          <Property Name="populariteForum" Type="int" />
+          <Property Name="ThemeForum" Type="varchar" MaxLength="50" />
+          <Property Name="SujetForum" Type="varchar(max)" />
+          <Property Name="idMedia" Type="int" />
+          <Property Name="idSport" Type="int" />
+          <Property Name="idUtilisateur" Type="int" Nullable="false" />
+          <Property Name="idStatut" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Galerie">
+          <Key>
+            <PropertyRef Name="idGalerie" />
+          </Key>
+          <Property Name="idGalerie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datePostGalerie" Type="datetime" />
+          <Property Name="idSport" Type="int" />
+          <Property Name="urlGalerie" Type="varchar(max)" />
+          <Property Name="AltGalerie" Type="varchar" MaxLength="50" />
+          <Property Name="nomGalerie" Type="varchar" MaxLength="50" />
+          <Property Name="ordreGalerie" Type="int" />
+          <Property Name="idStatut" Type="int" Nullable="false" />
+          <Property Name="idTypeGalerie" Type="int" Nullable="false" />
+          <Property Name="visibleGalerie" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="idMessage" />
+          </Key>
+          <Property Name="idMessage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="texteMessage" Type="varchar(max)" Nullable="false" />
+          <Property Name="idForum" Type="int" Nullable="false" />
+          <Property Name="idStatut" Type="int" Nullable="false" />
+          <Property Name="idUtilisateur" Type="int" Nullable="false" />
+          <Property Name="idMedia" Type="int" />
+          <Property Name="idSport" Type="int" />
+          <Property Name="populariteMessage" Type="int" />
+        </EntityType>
+        <EntityType Name="Newsletter">
+          <Key>
+            <PropertyRef Name="idNewsletter" />
+          </Key>
+          <Property Name="idNewsletter" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="titreNewsletter" Type="varchar(max)" />
+          <Property Name="sousTitreNewsletter" Type="varchar(max)" />
+          <Property Name="contenuNewsletter" Type="varchar(max)" />
+          <Property Name="idUtilisateur" Type="int" Nullable="false" />
+          <Property Name="idMedia" Type="int" />
+        </EntityType>
+        <EntityType Name="Panneau">
+          <Key>
+            <PropertyRef Name="idPanneau" />
+          </Key>
+          <Property Name="idPanneau" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="textePanneau" Type="varchar(max)" Nullable="false" />
+          <Property Name="OrdrePanneau" Type="int" />
+          <Property Name="visiblePanneau" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="Partenaire">
+          <Key>
+            <PropertyRef Name="idPartenaire" />
+          </Key>
+          <Property Name="idPartenaire" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomPartenaire" Type="varchar(max)" Nullable="false" />
+          <Property Name="urlPartenaire" Type="varchar(max)" Nullable="false" />
+          <Property Name="lienPartenaire" Type="varchar(max)" />
+          <Property Name="altPartenaire" Type="varchar" MaxLength="100" />
+          <Property Name="OrdrePartenaire" Type="int" />
+          <Property Name="visiblePartenaire" Type="tinyint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participation">
+          <Key>
+            <PropertyRef Name="idParticipation" />
+          </Key>
+          <Property Name="idParticipation" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomParticipation" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Publication">
+          <Key>
+            <PropertyRef Name="idPublication" />
+          </Key>
+          <Property Name="idPublication" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idTypePublication" Type="int" Nullable="false" />
+          <Property Name="datePostPublication" Type="datetime" Nullable="false" />
+          <Property Name="datePrevisionPublication" Type="datetime" />
+          <Property Name="titrePublication" Type="varchar(max)" />
+          <Property Name="sousTitrePublication" Type="varchar(max)" />
+          <Property Name="souscontenuPublication" Type="text" />
+          <Property Name="contenuPublication" Type="text" />
+          <Property Name="urlPublication" Type="varchar(max)" />
+          <Property Name="url1Publication" Type="varchar(max)" />
+          <Property Name="url2Publication" Type="varchar(max)" />
+          <Property Name="url3Publication" Type="varchar(max)" />
+          <Property Name="url4Publication" Type="varchar(max)" />
+          <Property Name="url5Publication" Type="varchar(max)" />
+          <Property Name="idStatut" Type="int" Nullable="false" />
+          <Property Name="visiblePublication" Type="tinyint" Nullable="false" />
+          <Property Name="idUtilisateur" Type="int" />
+          <Property Name="idParticipation" Type="int" />
+        </EntityType>
+        <EntityType Name="PublicationImage">
+          <Key>
+            <PropertyRef Name="idPublicationImage" />
+          </Key>
+          <Property Name="idPublicationImage" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="urlPublicationImage" Type="varchar(max)" />
+          <Property Name="idPublication" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="idSport" />
+          </Key>
+          <Property Name="idSport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomSport" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statut">
+          <Key>
+            <PropertyRef Name="idStatut" />
+          </Key>
+          <Property Name="idStatut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomStatut" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="accesStatut" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeGalerie">
+          <Key>
+            <PropertyRef Name="idTypeGalerie" />
+          </Key>
+          <Property Name="idTypeGalerie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomTypeGalerie" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypePublication">
+          <Key>
+            <PropertyRef Name="idTypePublication" />
+          </Key>
+          <Property Name="idTypePublication" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nomTypePublication" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="mailUtilisateur" Type="varchar(max)" Nullable="false" />
+          <Property Name="pseudoUtilisateur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nomUtilisateur" Type="varchar" MaxLength="50" />
+          <Property Name="prenomUtilisateur" Type="varchar" MaxLength="50" />
+          <Property Name="DateNaissanceUtilisateur" Type="datetime" />
+          <Property Name="mdpUtilisateur" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="dateInscriptionUtilisateur" Type="datetime" Nullable="false" />
+          <Property Name="tokenUtilisateur" Type="varchar(max)" />
+          <Property Name="idAdhesion" Type="int" />
+          <Property Name="idStatut" Type="int" Nullable="false" />
+          <Property Name="idSport" Type="int" />
+        </EntityType>
+        <Association Name="FK__Forum__idSport__778AC167">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forum__idStatut__7A672E12">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forum__idUtilisa__74794A92">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idSport__0E391C95">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idStatu__10216507">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idTypeG__0F2D40CE">
+          <End Role="TypeGalerie" Type="Self.TypeGalerie" Multiplicity="1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeGalerie">
+              <PropertyRef Name="idTypeGalerie" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idTypeGalerie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idForum__7D439ABD">
+          <End Role="Forum" Type="Self.Forum" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="idForum" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idSport__7E37BEF6">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idStatu__01142BA1">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idUtili__756D6ECB">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Newslette__idUti__6FB49575">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Newsletter" Type="Self.Newsletter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Newsletter">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idPar__16CE6296">
+          <End Role="Participation" Type="Self.Participation" Multiplicity="0..1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participation">
+              <PropertyRef Name="idParticipation" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idParticipation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idPub__2EA5EC27">
+          <End Role="Publication" Type="Self.Publication" Multiplicity="1" />
+          <End Role="PublicationImage" Type="Self.PublicationImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publication">
+              <PropertyRef Name="idPublication" />
+            </Principal>
+            <Dependent Role="PublicationImage">
+              <PropertyRef Name="idPublication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idSta__19AACF41">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idTyp__17C286CF">
+          <End Role="TypePublication" Type="Self.TypePublication" Multiplicity="1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePublication">
+              <PropertyRef Name="idTypePublication" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idTypePublication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idUti__18B6AB08">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__idAdh__70A8B9AE">
+          <End Role="Adhesion" Type="Self.Adhesion" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adhesion">
+              <PropertyRef Name="idAdhesion" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idAdhesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__idSpo__72910220">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__idSta__719CDDE7">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RollOnBlbModelStoreContainer">
+          <EntitySet Name="Adhesion" EntityType="Self.Adhesion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Caroussel" EntityType="Self.Caroussel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Galerie" EntityType="Self.Galerie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Message" EntityType="Self.Message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Newsletter" EntityType="Self.Newsletter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Panneau" EntityType="Self.Panneau" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Partenaire" EntityType="Self.Partenaire" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participation" EntityType="Self.Participation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Publication" EntityType="Self.Publication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PublicationImage" EntityType="Self.PublicationImage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sport" EntityType="Self.Sport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statut" EntityType="Self.Statut" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeGalerie" EntityType="Self.TypeGalerie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypePublication" EntityType="Self.TypePublication" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Forum__idSport__778AC167" Association="Self.FK__Forum__idSport__778AC167">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forum__idStatut__7A672E12" Association="Self.FK__Forum__idStatut__7A672E12">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forum__idUtilisa__74794A92" Association="Self.FK__Forum__idUtilisa__74794A92">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idSport__0E391C95" Association="Self.FK__Galerie__idSport__0E391C95">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idStatu__10216507" Association="Self.FK__Galerie__idStatu__10216507">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idTypeG__0F2D40CE" Association="Self.FK__Galerie__idTypeG__0F2D40CE">
+            <End Role="TypeGalerie" EntitySet="TypeGalerie" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idForum__7D439ABD" Association="Self.FK__Message__idForum__7D439ABD">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idSport__7E37BEF6" Association="Self.FK__Message__idSport__7E37BEF6">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idStatu__01142BA1" Association="Self.FK__Message__idStatu__01142BA1">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idUtili__756D6ECB" Association="Self.FK__Message__idUtili__756D6ECB">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Newslette__idUti__6FB49575" Association="Self.FK__Newslette__idUti__6FB49575">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Newsletter" EntitySet="Newsletter" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idPar__16CE6296" Association="Self.FK__Publicati__idPar__16CE6296">
+            <End Role="Participation" EntitySet="Participation" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idPub__2EA5EC27" Association="Self.FK__Publicati__idPub__2EA5EC27">
+            <End Role="Publication" EntitySet="Publication" />
+            <End Role="PublicationImage" EntitySet="PublicationImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idSta__19AACF41" Association="Self.FK__Publicati__idSta__19AACF41">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idTyp__17C286CF" Association="Self.FK__Publicati__idTyp__17C286CF">
+            <End Role="TypePublication" EntitySet="TypePublication" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idUti__18B6AB08" Association="Self.FK__Publicati__idUti__18B6AB08">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__idAdh__70A8B9AE" Association="Self.FK__Utilisate__idAdh__70A8B9AE">
+            <End Role="Adhesion" EntitySet="Adhesion" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__idSpo__72910220" Association="Self.FK__Utilisate__idSpo__72910220">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__idSta__719CDDE7" Association="Self.FK__Utilisate__idSta__719CDDE7">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RollOnBlbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adhesion">
+          <Key>
+            <PropertyRef Name="idAdhesion" />
+          </Key>
+          <Property Name="idAdhesion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dateAdhesion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="dateFinAdhesion" Type="DateTime" Precision="3" />
+          <Property Name="nomAdhesion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="prenomAdhesion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Utilisate__idAdh__70A8B9AE" FromRole="Adhesion" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Caroussel">
+          <Key>
+            <PropertyRef Name="idCaroussel" />
+          </Key>
+          <Property Name="idCaroussel" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="visibleCaroussel" Type="Byte" Nullable="false" />
+          <Property Name="urlminiCaroussel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urlCaroussel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="altCaroussel" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Forum">
+          <Key>
+            <PropertyRef Name="idForum" />
+          </Key>
+          <Property Name="idForum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datePostForum" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="populariteForum" Type="Int32" />
+          <Property Name="ThemeForum" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SujetForum" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idMedia" Type="Int32" />
+          <Property Name="idSport" Type="Int32" />
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="idStatut" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Forum__idSport__778AC167" FromRole="Forum" ToRole="Sport" />
+          <NavigationProperty Name="Statut" Relationship="Self.FK__Forum__idStatut__7A672E12" FromRole="Forum" ToRole="Statut" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Forum__idUtilisa__74794A92" FromRole="Forum" ToRole="Utilisateur" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__Message__idForum__7D439ABD" FromRole="Forum" ToRole="Message" />
+        </EntityType>
+        <EntityType Name="Galerie">
+          <Key>
+            <PropertyRef Name="idGalerie" />
+          </Key>
+          <Property Name="idGalerie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datePostGalerie" Type="DateTime" Precision="3" />
+          <Property Name="idSport" Type="Int32" />
+          <Property Name="urlGalerie" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AltGalerie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomGalerie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ordreGalerie" Type="Int32" />
+          <Property Name="idStatut" Type="Int32" Nullable="false" />
+          <Property Name="idTypeGalerie" Type="Int32" Nullable="false" />
+          <Property Name="visibleGalerie" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Galerie__idSport__0E391C95" FromRole="Galerie" ToRole="Sport" />
+          <NavigationProperty Name="Statut" Relationship="Self.FK__Galerie__idStatu__10216507" FromRole="Galerie" ToRole="Statut" />
+          <NavigationProperty Name="TypeGalerie" Relationship="Self.FK__Galerie__idTypeG__0F2D40CE" FromRole="Galerie" ToRole="TypeGalerie" />
+        </EntityType>
+        <EntityType Name="Message">
+          <Key>
+            <PropertyRef Name="idMessage" />
+          </Key>
+          <Property Name="idMessage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="texteMessage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="idForum" Type="Int32" Nullable="false" />
+          <Property Name="idStatut" Type="Int32" Nullable="false" />
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="idMedia" Type="Int32" />
+          <Property Name="idSport" Type="Int32" />
+          <Property Name="populariteMessage" Type="Int32" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK__Message__idForum__7D439ABD" FromRole="Message" ToRole="Forum" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Message__idSport__7E37BEF6" FromRole="Message" ToRole="Sport" />
+          <NavigationProperty Name="Statut" Relationship="Self.FK__Message__idStatu__01142BA1" FromRole="Message" ToRole="Statut" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Message__idUtili__756D6ECB" FromRole="Message" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Newsletter">
+          <Key>
+            <PropertyRef Name="idNewsletter" />
+          </Key>
+          <Property Name="idNewsletter" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="titreNewsletter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sousTitreNewsletter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contenuNewsletter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" />
+          <Property Name="idMedia" Type="Int32" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Newslette__idUti__6FB49575" FromRole="Newsletter" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Panneau">
+          <Key>
+            <PropertyRef Name="idPanneau" />
+          </Key>
+          <Property Name="idPanneau" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="textePanneau" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OrdrePanneau" Type="Int32" />
+          <Property Name="visiblePanneau" Type="Byte" />
+        </EntityType>
+        <EntityType Name="Partenaire">
+          <Key>
+            <PropertyRef Name="idPartenaire" />
+          </Key>
+          <Property Name="idPartenaire" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomPartenaire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="urlPartenaire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lienPartenaire" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="altPartenaire" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="OrdrePartenaire" Type="Int32" />
+          <Property Name="visiblePartenaire" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Participation">
+          <Key>
+            <PropertyRef Name="idParticipation" />
+          </Key>
+          <Property Name="idParticipation" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomParticipation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK__Publicati__idPar__16CE6296" FromRole="Participation" ToRole="Publication" />
+        </EntityType>
+        <EntityType Name="Publication">
+          <Key>
+            <PropertyRef Name="idPublication" />
+          </Key>
+          <Property Name="idPublication" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idTypePublication" Type="Int32" Nullable="false" />
+          <Property Name="datePostPublication" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="datePrevisionPublication" Type="DateTime" Precision="3" />
+          <Property Name="titrePublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="sousTitrePublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="souscontenuPublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="contenuPublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="urlPublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url1Publication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url2Publication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url3Publication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url4Publication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="url5Publication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idStatut" Type="Int32" Nullable="false" />
+          <Property Name="visiblePublication" Type="Byte" Nullable="false" />
+          <Property Name="idUtilisateur" Type="Int32" />
+          <Property Name="idParticipation" Type="Int32" />
+          <NavigationProperty Name="Participation" Relationship="Self.FK__Publicati__idPar__16CE6296" FromRole="Publication" ToRole="Participation" />
+          <NavigationProperty Name="PublicationImage" Relationship="Self.FK__Publicati__idPub__2EA5EC27" FromRole="Publication" ToRole="PublicationImage" />
+          <NavigationProperty Name="Statut" Relationship="Self.FK__Publicati__idSta__19AACF41" FromRole="Publication" ToRole="Statut" />
+          <NavigationProperty Name="TypePublication" Relationship="Self.FK__Publicati__idTyp__17C286CF" FromRole="Publication" ToRole="TypePublication" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Publicati__idUti__18B6AB08" FromRole="Publication" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="PublicationImage">
+          <Key>
+            <PropertyRef Name="idPublicationImage" />
+          </Key>
+          <Property Name="idPublicationImage" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="urlPublicationImage" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idPublication" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK__Publicati__idPub__2EA5EC27" FromRole="PublicationImage" ToRole="Publication" />
+        </EntityType>
+        <EntityType Name="Sport">
+          <Key>
+            <PropertyRef Name="idSport" />
+          </Key>
+          <Property Name="idSport" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomSport" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK__Forum__idSport__778AC167" FromRole="Sport" ToRole="Forum" />
+          <NavigationProperty Name="Galerie" Relationship="Self.FK__Galerie__idSport__0E391C95" FromRole="Sport" ToRole="Galerie" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__Message__idSport__7E37BEF6" FromRole="Sport" ToRole="Message" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Utilisate__idSpo__72910220" FromRole="Sport" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="Statut">
+          <Key>
+            <PropertyRef Name="idStatut" />
+          </Key>
+          <Property Name="idStatut" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomStatut" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="accesStatut" Type="Int32" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK__Forum__idStatut__7A672E12" FromRole="Statut" ToRole="Forum" />
+          <NavigationProperty Name="Galerie" Relationship="Self.FK__Galerie__idStatu__10216507" FromRole="Statut" ToRole="Galerie" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__Message__idStatu__01142BA1" FromRole="Statut" ToRole="Message" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK__Publicati__idSta__19AACF41" FromRole="Statut" ToRole="Publication" />
+          <NavigationProperty Name="Utilisateur" Relationship="Self.FK__Utilisate__idSta__719CDDE7" FromRole="Statut" ToRole="Utilisateur" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TypeGalerie">
+          <Key>
+            <PropertyRef Name="idTypeGalerie" />
+          </Key>
+          <Property Name="idTypeGalerie" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomTypeGalerie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Galerie" Relationship="Self.FK__Galerie__idTypeG__0F2D40CE" FromRole="TypeGalerie" ToRole="Galerie" />
+        </EntityType>
+        <EntityType Name="TypePublication">
+          <Key>
+            <PropertyRef Name="idTypePublication" />
+          </Key>
+          <Property Name="idTypePublication" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nomTypePublication" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK__Publicati__idTyp__17C286CF" FromRole="TypePublication" ToRole="Publication" />
+        </EntityType>
+        <EntityType Name="Utilisateur">
+          <Key>
+            <PropertyRef Name="idUtilisateur" />
+          </Key>
+          <Property Name="idUtilisateur" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="mailUtilisateur" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="pseudoUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nomUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="prenomUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DateNaissanceUtilisateur" Type="DateTime" Precision="3" />
+          <Property Name="mdpUtilisateur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateInscriptionUtilisateur" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="tokenUtilisateur" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="idAdhesion" Type="Int32" />
+          <Property Name="idStatut" Type="Int32" Nullable="false" />
+          <Property Name="idSport" Type="Int32" />
+          <NavigationProperty Name="Adhesion" Relationship="Self.FK__Utilisate__idAdh__70A8B9AE" FromRole="Utilisateur" ToRole="Adhesion" />
+          <NavigationProperty Name="Forum" Relationship="Self.FK__Forum__idUtilisa__74794A92" FromRole="Utilisateur" ToRole="Forum" />
+          <NavigationProperty Name="Message" Relationship="Self.FK__Message__idUtili__756D6ECB" FromRole="Utilisateur" ToRole="Message" />
+          <NavigationProperty Name="Newsletter" Relationship="Self.FK__Newslette__idUti__6FB49575" FromRole="Utilisateur" ToRole="Newsletter" />
+          <NavigationProperty Name="Publication" Relationship="Self.FK__Publicati__idUti__18B6AB08" FromRole="Utilisateur" ToRole="Publication" />
+          <NavigationProperty Name="Sport" Relationship="Self.FK__Utilisate__idSpo__72910220" FromRole="Utilisateur" ToRole="Sport" />
+          <NavigationProperty Name="Statut" Relationship="Self.FK__Utilisate__idSta__719CDDE7" FromRole="Utilisateur" ToRole="Statut" />
+        </EntityType>
+        <Association Name="FK__Utilisate__idAdh__70A8B9AE">
+          <End Role="Adhesion" Type="Self.Adhesion" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adhesion">
+              <PropertyRef Name="idAdhesion" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idAdhesion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forum__idSport__778AC167">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forum__idStatut__7A672E12">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Forum__idUtilisa__74794A92">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Forum" Type="Self.Forum" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Forum">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idForum__7D439ABD">
+          <End Role="Forum" Type="Self.Forum" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Forum">
+              <PropertyRef Name="idForum" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idForum" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idSport__0E391C95">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idStatu__10216507">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Galerie__idTypeG__0F2D40CE">
+          <End Role="TypeGalerie" Type="Self.TypeGalerie" Multiplicity="1" />
+          <End Role="Galerie" Type="Self.Galerie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeGalerie">
+              <PropertyRef Name="idTypeGalerie" />
+            </Principal>
+            <Dependent Role="Galerie">
+              <PropertyRef Name="idTypeGalerie" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idSport__7E37BEF6">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idStatu__01142BA1">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Message__idUtili__756D6ECB">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Message" Type="Self.Message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Message">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Newslette__idUti__6FB49575">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="1" />
+          <End Role="Newsletter" Type="Self.Newsletter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Newsletter">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idPar__16CE6296">
+          <End Role="Participation" Type="Self.Participation" Multiplicity="0..1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participation">
+              <PropertyRef Name="idParticipation" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idParticipation" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idPub__2EA5EC27">
+          <End Role="Publication" Type="Self.Publication" Multiplicity="1" />
+          <End Role="PublicationImage" Type="Self.PublicationImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Publication">
+              <PropertyRef Name="idPublication" />
+            </Principal>
+            <Dependent Role="PublicationImage">
+              <PropertyRef Name="idPublication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idSta__19AACF41">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idTyp__17C286CF">
+          <End Role="TypePublication" Type="Self.TypePublication" Multiplicity="1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypePublication">
+              <PropertyRef Name="idTypePublication" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idTypePublication" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Publicati__idUti__18B6AB08">
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="0..1" />
+          <End Role="Publication" Type="Self.Publication" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Utilisateur">
+              <PropertyRef Name="idUtilisateur" />
+            </Principal>
+            <Dependent Role="Publication">
+              <PropertyRef Name="idUtilisateur" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__idSpo__72910220">
+          <End Role="Sport" Type="Self.Sport" Multiplicity="0..1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sport">
+              <PropertyRef Name="idSport" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idSport" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Utilisate__idSta__719CDDE7">
+          <End Role="Statut" Type="Self.Statut" Multiplicity="1" />
+          <End Role="Utilisateur" Type="Self.Utilisateur" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statut">
+              <PropertyRef Name="idStatut" />
+            </Principal>
+            <Dependent Role="Utilisateur">
+              <PropertyRef Name="idStatut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RollOnBlbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adhesion" EntityType="Self.Adhesion" />
+          <EntitySet Name="Caroussel" EntityType="Self.Caroussel" />
+          <EntitySet Name="Forum" EntityType="Self.Forum" />
+          <EntitySet Name="Galerie" EntityType="Self.Galerie" />
+          <EntitySet Name="Message" EntityType="Self.Message" />
+          <EntitySet Name="Newsletter" EntityType="Self.Newsletter" />
+          <EntitySet Name="Panneau" EntityType="Self.Panneau" />
+          <EntitySet Name="Partenaire" EntityType="Self.Partenaire" />
+          <EntitySet Name="Participation" EntityType="Self.Participation" />
+          <EntitySet Name="Publication" EntityType="Self.Publication" />
+          <EntitySet Name="PublicationImage" EntityType="Self.PublicationImage" />
+          <EntitySet Name="Sport" EntityType="Self.Sport" />
+          <EntitySet Name="Statut" EntityType="Self.Statut" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+          <EntitySet Name="TypeGalerie" EntityType="Self.TypeGalerie" />
+          <EntitySet Name="TypePublication" EntityType="Self.TypePublication" />
+          <EntitySet Name="Utilisateur" EntityType="Self.Utilisateur" />
+          <AssociationSet Name="FK__Utilisate__idAdh__70A8B9AE" Association="Self.FK__Utilisate__idAdh__70A8B9AE">
+            <End Role="Adhesion" EntitySet="Adhesion" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forum__idSport__778AC167" Association="Self.FK__Forum__idSport__778AC167">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forum__idStatut__7A672E12" Association="Self.FK__Forum__idStatut__7A672E12">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Forum__idUtilisa__74794A92" Association="Self.FK__Forum__idUtilisa__74794A92">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Forum" EntitySet="Forum" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idForum__7D439ABD" Association="Self.FK__Message__idForum__7D439ABD">
+            <End Role="Forum" EntitySet="Forum" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idSport__0E391C95" Association="Self.FK__Galerie__idSport__0E391C95">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idStatu__10216507" Association="Self.FK__Galerie__idStatu__10216507">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Galerie__idTypeG__0F2D40CE" Association="Self.FK__Galerie__idTypeG__0F2D40CE">
+            <End Role="TypeGalerie" EntitySet="TypeGalerie" />
+            <End Role="Galerie" EntitySet="Galerie" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idSport__7E37BEF6" Association="Self.FK__Message__idSport__7E37BEF6">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idStatu__01142BA1" Association="Self.FK__Message__idStatu__01142BA1">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Message__idUtili__756D6ECB" Association="Self.FK__Message__idUtili__756D6ECB">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Message" EntitySet="Message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Newslette__idUti__6FB49575" Association="Self.FK__Newslette__idUti__6FB49575">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Newsletter" EntitySet="Newsletter" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idPar__16CE6296" Association="Self.FK__Publicati__idPar__16CE6296">
+            <End Role="Participation" EntitySet="Participation" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idPub__2EA5EC27" Association="Self.FK__Publicati__idPub__2EA5EC27">
+            <End Role="Publication" EntitySet="Publication" />
+            <End Role="PublicationImage" EntitySet="PublicationImage" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idSta__19AACF41" Association="Self.FK__Publicati__idSta__19AACF41">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idTyp__17C286CF" Association="Self.FK__Publicati__idTyp__17C286CF">
+            <End Role="TypePublication" EntitySet="TypePublication" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Publicati__idUti__18B6AB08" Association="Self.FK__Publicati__idUti__18B6AB08">
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+            <End Role="Publication" EntitySet="Publication" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__idSpo__72910220" Association="Self.FK__Utilisate__idSpo__72910220">
+            <End Role="Sport" EntitySet="Sport" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Utilisate__idSta__719CDDE7" Association="Self.FK__Utilisate__idSta__719CDDE7">
+            <End Role="Statut" EntitySet="Statut" />
+            <End Role="Utilisateur" EntitySet="Utilisateur" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RollOnBlbModelStoreContainer" CdmEntityContainer="RollOnBlbEntities">
+          <EntitySetMapping Name="Adhesion">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Adhesion">
+              <MappingFragment StoreEntitySet="Adhesion">
+                <ScalarProperty Name="idAdhesion" ColumnName="idAdhesion" />
+                <ScalarProperty Name="dateAdhesion" ColumnName="dateAdhesion" />
+                <ScalarProperty Name="dateFinAdhesion" ColumnName="dateFinAdhesion" />
+                <ScalarProperty Name="nomAdhesion" ColumnName="nomAdhesion" />
+                <ScalarProperty Name="prenomAdhesion" ColumnName="prenomAdhesion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Caroussel">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Caroussel">
+              <MappingFragment StoreEntitySet="Caroussel">
+                <ScalarProperty Name="idCaroussel" ColumnName="idCaroussel" />
+                <ScalarProperty Name="visibleCaroussel" ColumnName="visibleCaroussel" />
+                <ScalarProperty Name="urlminiCaroussel" ColumnName="urlminiCaroussel" />
+                <ScalarProperty Name="urlCaroussel" ColumnName="urlCaroussel" />
+                <ScalarProperty Name="altCaroussel" ColumnName="altCaroussel" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Forum">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Forum">
+              <MappingFragment StoreEntitySet="Forum">
+                <ScalarProperty Name="idForum" ColumnName="idForum" />
+                <ScalarProperty Name="datePostForum" ColumnName="datePostForum" />
+                <ScalarProperty Name="populariteForum" ColumnName="populariteForum" />
+                <ScalarProperty Name="ThemeForum" ColumnName="ThemeForum" />
+                <ScalarProperty Name="SujetForum" ColumnName="SujetForum" />
+                <ScalarProperty Name="idMedia" ColumnName="idMedia" />
+                <ScalarProperty Name="idSport" ColumnName="idSport" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Galerie">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Galerie">
+              <MappingFragment StoreEntitySet="Galerie">
+                <ScalarProperty Name="idGalerie" ColumnName="idGalerie" />
+                <ScalarProperty Name="datePostGalerie" ColumnName="datePostGalerie" />
+                <ScalarProperty Name="idSport" ColumnName="idSport" />
+                <ScalarProperty Name="urlGalerie" ColumnName="urlGalerie" />
+                <ScalarProperty Name="AltGalerie" ColumnName="AltGalerie" />
+                <ScalarProperty Name="nomGalerie" ColumnName="nomGalerie" />
+                <ScalarProperty Name="ordreGalerie" ColumnName="ordreGalerie" />
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+                <ScalarProperty Name="idTypeGalerie" ColumnName="idTypeGalerie" />
+                <ScalarProperty Name="visibleGalerie" ColumnName="visibleGalerie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Message">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Message">
+              <MappingFragment StoreEntitySet="Message">
+                <ScalarProperty Name="idMessage" ColumnName="idMessage" />
+                <ScalarProperty Name="texteMessage" ColumnName="texteMessage" />
+                <ScalarProperty Name="idForum" ColumnName="idForum" />
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="idMedia" ColumnName="idMedia" />
+                <ScalarProperty Name="idSport" ColumnName="idSport" />
+                <ScalarProperty Name="populariteMessage" ColumnName="populariteMessage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Newsletter">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Newsletter">
+              <MappingFragment StoreEntitySet="Newsletter">
+                <ScalarProperty Name="idNewsletter" ColumnName="idNewsletter" />
+                <ScalarProperty Name="titreNewsletter" ColumnName="titreNewsletter" />
+                <ScalarProperty Name="sousTitreNewsletter" ColumnName="sousTitreNewsletter" />
+                <ScalarProperty Name="contenuNewsletter" ColumnName="contenuNewsletter" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="idMedia" ColumnName="idMedia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Panneau">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Panneau">
+              <MappingFragment StoreEntitySet="Panneau">
+                <ScalarProperty Name="idPanneau" ColumnName="idPanneau" />
+                <ScalarProperty Name="textePanneau" ColumnName="textePanneau" />
+                <ScalarProperty Name="OrdrePanneau" ColumnName="OrdrePanneau" />
+                <ScalarProperty Name="visiblePanneau" ColumnName="visiblePanneau" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Partenaire">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Partenaire">
+              <MappingFragment StoreEntitySet="Partenaire">
+                <ScalarProperty Name="idPartenaire" ColumnName="idPartenaire" />
+                <ScalarProperty Name="nomPartenaire" ColumnName="nomPartenaire" />
+                <ScalarProperty Name="urlPartenaire" ColumnName="urlPartenaire" />
+                <ScalarProperty Name="lienPartenaire" ColumnName="lienPartenaire" />
+                <ScalarProperty Name="altPartenaire" ColumnName="altPartenaire" />
+                <ScalarProperty Name="OrdrePartenaire" ColumnName="OrdrePartenaire" />
+                <ScalarProperty Name="visiblePartenaire" ColumnName="visiblePartenaire" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participation">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Participation">
+              <MappingFragment StoreEntitySet="Participation">
+                <ScalarProperty Name="idParticipation" ColumnName="idParticipation" />
+                <ScalarProperty Name="nomParticipation" ColumnName="nomParticipation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Publication">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Publication">
+              <MappingFragment StoreEntitySet="Publication">
+                <ScalarProperty Name="idPublication" ColumnName="idPublication" />
+                <ScalarProperty Name="idTypePublication" ColumnName="idTypePublication" />
+                <ScalarProperty Name="datePostPublication" ColumnName="datePostPublication" />
+                <ScalarProperty Name="datePrevisionPublication" ColumnName="datePrevisionPublication" />
+                <ScalarProperty Name="titrePublication" ColumnName="titrePublication" />
+                <ScalarProperty Name="sousTitrePublication" ColumnName="sousTitrePublication" />
+                <ScalarProperty Name="souscontenuPublication" ColumnName="souscontenuPublication" />
+                <ScalarProperty Name="contenuPublication" ColumnName="contenuPublication" />
+                <ScalarProperty Name="urlPublication" ColumnName="urlPublication" />
+                <ScalarProperty Name="url1Publication" ColumnName="url1Publication" />
+                <ScalarProperty Name="url2Publication" ColumnName="url2Publication" />
+                <ScalarProperty Name="url3Publication" ColumnName="url3Publication" />
+                <ScalarProperty Name="url4Publication" ColumnName="url4Publication" />
+                <ScalarProperty Name="url5Publication" ColumnName="url5Publication" />
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+                <ScalarProperty Name="visiblePublication" ColumnName="visiblePublication" />
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="idParticipation" ColumnName="idParticipation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PublicationImage">
+            <EntityTypeMapping TypeName="RollOnBlbModel.PublicationImage">
+              <MappingFragment StoreEntitySet="PublicationImage">
+                <ScalarProperty Name="idPublicationImage" ColumnName="idPublicationImage" />
+                <ScalarProperty Name="urlPublicationImage" ColumnName="urlPublicationImage" />
+                <ScalarProperty Name="idPublication" ColumnName="idPublication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sport">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Sport">
+              <MappingFragment StoreEntitySet="Sport">
+                <ScalarProperty Name="idSport" ColumnName="idSport" />
+                <ScalarProperty Name="nomSport" ColumnName="nomSport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statut">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Statut">
+              <MappingFragment StoreEntitySet="Statut">
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+                <ScalarProperty Name="nomStatut" ColumnName="nomStatut" />
+                <ScalarProperty Name="accesStatut" ColumnName="accesStatut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RollOnBlbModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeGalerie">
+            <EntityTypeMapping TypeName="RollOnBlbModel.TypeGalerie">
+              <MappingFragment StoreEntitySet="TypeGalerie">
+                <ScalarProperty Name="idTypeGalerie" ColumnName="idTypeGalerie" />
+                <ScalarProperty Name="nomTypeGalerie" ColumnName="nomTypeGalerie" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypePublication">
+            <EntityTypeMapping TypeName="RollOnBlbModel.TypePublication">
+              <MappingFragment StoreEntitySet="TypePublication">
+                <ScalarProperty Name="idTypePublication" ColumnName="idTypePublication" />
+                <ScalarProperty Name="nomTypePublication" ColumnName="nomTypePublication" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Utilisateur">
+            <EntityTypeMapping TypeName="RollOnBlbModel.Utilisateur">
+              <MappingFragment StoreEntitySet="Utilisateur">
+                <ScalarProperty Name="idUtilisateur" ColumnName="idUtilisateur" />
+                <ScalarProperty Name="mailUtilisateur" ColumnName="mailUtilisateur" />
+                <ScalarProperty Name="pseudoUtilisateur" ColumnName="pseudoUtilisateur" />
+                <ScalarProperty Name="nomUtilisateur" ColumnName="nomUtilisateur" />
+                <ScalarProperty Name="prenomUtilisateur" ColumnName="prenomUtilisateur" />
+                <ScalarProperty Name="DateNaissanceUtilisateur" ColumnName="DateNaissanceUtilisateur" />
+                <ScalarProperty Name="mdpUtilisateur" ColumnName="mdpUtilisateur" />
+                <ScalarProperty Name="dateInscriptionUtilisateur" ColumnName="dateInscriptionUtilisateur" />
+                <ScalarProperty Name="tokenUtilisateur" ColumnName="tokenUtilisateur" />
+                <ScalarProperty Name="idAdhesion" ColumnName="idAdhesion" />
+                <ScalarProperty Name="idStatut" ColumnName="idStatut" />
+                <ScalarProperty Name="idSport" ColumnName="idSport" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

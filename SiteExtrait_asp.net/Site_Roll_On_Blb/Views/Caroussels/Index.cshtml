@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Site_Roll_On_Blb.Models.Caroussel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table {
+            font-size: small;
+        }
+
+        html {
+            overflow-x: visible;
+        }
+
+        a {
+            color: whitesmoke;
+        }
+
+            a:hover {
+                color: whitesmoke;
+                background-color: rgba(182, 63, 57, 0.582);
+            }
+    </style>
+</head>
+<body>
+
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                @Html.DisplayNameFor(model => model.visibleCaroussel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.altCaroussel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.urlminiCaroussel)
+            </th>*@
+                <th>
+                    @Html.DisplayNameFor(model => model.urlCaroussel)
+                </th>
+                <th class="create">
+                    <p>
+                        @Html.ActionLink("Créer image caroussel", "Create")
+                    </p>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                    @Html.DisplayFor(modelItem => item.visibleCaroussel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.altCaroussel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.urlminiCaroussel)
+                </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.urlCaroussel)
+                    </td>
+                    <td class="edd">
+                        @Html.ActionLink("Modifier", "Edit", new { id = item.idCaroussel,title="modifier image" }) <br /><br />
+                        @Html.ActionLink("Details", "Details", new { id = item.idCaroussel,title="Details image" }) <br /><br />
+                        @Html.ActionLink("Supprimer", "Delete", new { id = item.idCaroussel, title="Supprimer image" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
